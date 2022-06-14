@@ -11,4 +11,4 @@ cats:
 ---
 This is a sample page.
 
-This page is built with NextJS, and content is managed in Netlify CMS
+This page is built with NextJS, and content is managed in Netlify CMS.
