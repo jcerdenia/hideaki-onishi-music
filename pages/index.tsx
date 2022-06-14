@@ -1,10 +1,13 @@
 import type { NextPage } from "next";
 import PageLayout from "../components/PageLayout";
 import data from "../data";
+import { attributes, react as HomeContent } from "../content/home.md";
 
 const { site } = data;
 
 const Home: NextPage = () => {
+  const { title, cats } = attributes;
+
   return (
     <PageLayout title={site.title} description={site.description}>
       <div>
@@ -19,6 +22,16 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+
+      <HomeContent />
+      <ul>
+        {cats.map((cat: any, k: number) => (
+          <li key={k}>
+            <h2>{cat.name}</h2>
+            <p>{cat.description}</p>
+          </li>
+        ))}
+      </ul>
     </PageLayout>
   );
 };
