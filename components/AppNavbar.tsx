@@ -37,7 +37,7 @@ const AppNavbar = () => {
             {navItems.map((n, i) => {
               if (i === navItems.length - 1) {
                 return (
-                  <a className="btn btn-primary" href={n.path}>
+                  <a key={i} className="btn btn-primary" href={n.path}>
                     {n.title}
                   </a>
                 );
@@ -77,7 +77,11 @@ const AppNavbar = () => {
             {navItems.map((n, i) => {
               if (i === navItems.length - 1) {
                 return (
-                  <a className="btn btn-primary mt-3" href={n.path}>
+                  <a
+                    key={i}
+                    className="btn btn-primary btn-outline"
+                    href={n.path}
+                  >
                     {n.title}
                   </a>
                 );
