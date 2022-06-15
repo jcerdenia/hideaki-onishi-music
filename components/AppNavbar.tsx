@@ -22,7 +22,7 @@ const navItems: NavItem[] = [
 
 const AppNavbar = () => {
   return (
-    <div className="navbar bg-base-100 py-3">
+    <div className="navbar bg-base-100 py-3 h-[72px]">
       <div className="flex-1">
         <Link href="/" passHref>
           <a className="btn btn-ghost normal-case text-xl">

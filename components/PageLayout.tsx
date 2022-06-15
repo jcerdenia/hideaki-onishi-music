@@ -9,13 +9,13 @@ interface PageLayoutProps {
 
 const PageLayout = ({ title, description, children }: PageLayoutProps) => {
   return (
-    <div>
+    <div className="font-poppins">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
       </Head>
 
-      <main className="container mx-auto min-h-screen font-poppins">
+      <main className="container mx-auto min-h-screen">
         <AppNavbar />
 
         {children}

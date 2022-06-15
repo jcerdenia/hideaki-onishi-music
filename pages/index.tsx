@@ -2,12 +2,12 @@ import type { NextPage } from "next";
 import PageLayout from "../components/PageLayout";
 import data from "../data";
 
-const { site } = data;
-
 const Home: NextPage = () => {
+  const { site } = data;
+
   return (
     <PageLayout title={site.title} description={site.description}>
-      <div>
+      <div className="flex" style={{ height: "calc(100vh - 72px)" }}>
         <div className="hero bg-base-100">
           <div className="hero-content text-center py-12">
             <div>
@@ -22,5 +22,7 @@ const Home: NextPage = () => {
     </PageLayout>
   );
 };
+
+//export const getStaticProps = async () => {};
 
 export default Home;
