@@ -1,25 +1,30 @@
 import Head from "next/head";
 import AppNavbar from "./AppNavbar";
+import type { Page, NavItem, SiteMetadata } from "../lib/types";
 
 interface PageLayoutProps {
-  title: string;
-  description: string;
+  site: SiteMetadata;
+  page: Page;
+  navItems: NavItem[];
   children: React.ReactNode;
 }
 
-const PageLayout = ({ title, description, children }: PageLayoutProps) => {
+const PageLayout = ({ site, page, navItems, children }: PageLayoutProps) => {
   return (
     <div className="font-poppins">
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{`${page.title} | ${site.title}`}</title>
+        <meta
+          name="description"
+          content={page.description || site.description}
+        />
       </Head>
 
-      <main className="container mx-auto min-h-screen">
-        <AppNavbar />
+      <div className="container mx-auto xl:max-w-7xl px-4">
+        <AppNavbar brand={site.title} navItems={navItems} email={site.email} />
 
         {children}
-      </main>
+      </div>
     </div>
   );
 };

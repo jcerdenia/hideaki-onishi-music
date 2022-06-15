@@ -1,18 +1,28 @@
-import type { NextPage } from "next";
+import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
 import PageLayout from "../components/PageLayout";
-import data from "../data";
+import type { NextPage, GetStaticProps } from "next";
+import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
 
-const Home: NextPage = () => {
-  const { site } = data;
+interface HomeProps {
+  site: SiteMetadata;
+  page: HomePage;
+  navItems: NavItem[];
+}
 
+const Home: NextPage<HomeProps> = (props) => {
   return (
-    <PageLayout title={site.title} description={site.description}>
+    <PageLayout {...props}>
       <div className="flex" style={{ height: "calc(100vh - 72px)" }}>
-        <div className="hero bg-base-100">
+        <div className="hero">
           <div className="hero-content text-center py-12">
-            <div>
-              <h1 className="text-3xl md:text-5xl font-bold">{site.tagline}</h1>
-              <p className="text-lg md:text-xl my-6">{site.description}</p>
+            <div className="max-w-xl">
+              <h1 className="text-3xl md:text-5xl font-bold">
+                {props.page.tagline}
+              </h1>
+
+              <p className="text-lg md:text-2xl my-8 text-gray-500 font-light">
+                {props.page.description}
+              </p>
 
               <p className="btn btn-primary">Learn More</p>
             </div>
@@ -23,6 +33,14 @@ const Home: NextPage = () => {
   );
 };
 
-//export const getStaticProps = async () => {};
+export const getStaticProps: GetStaticProps = async () => {
+  const site = await getSiteMetadata();
+  const page = await getHomePage();
+  const navItems = await getNavItems();
+
+  return {
+    props: { site, page, navItems },
+  };
+};
 
 export default Home;
