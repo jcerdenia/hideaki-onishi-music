@@ -1,5 +1,6 @@
 import type { Page, HomePage, NavItem, SiteMetadata } from "./types";
 import dummyData from "../dummy-data";
+import { slugify } from "./utils";
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
   return dummyData.site;
@@ -21,6 +22,12 @@ export const getNavItems = async (): Promise<NavItem[]> => {
     return {
       title: p.title,
       path: `/${p.slug}`,
+      subItems: p.sections.map((s) => {
+        return {
+          title: s.title,
+          path: `/${p.slug}/#${slugify(s.title)}`,
+        };
+      }),
     };
   });
 };

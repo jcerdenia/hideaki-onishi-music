@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { slugify } from "../lib/utils";
 import type { NavItem } from "../lib/types";
 
 interface AppNavbarProps {
@@ -22,7 +23,32 @@ const AppNavbar = ({ brand, email, navItems }: AppNavbarProps) => {
             {navItems.map((n, i) => {
               return (
                 <li key={i}>
-                  <Link href={n.path}>{n.title}</Link>
+                  <Link href={n.path} passHref>
+                    <a>
+                      {n.title}
+                      {n.subItems && n.subItems.length ? (
+                        <svg
+                          className="fill-current"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                        </svg>
+                      ) : null}
+                    </a>
+                  </Link>
+
+                  <ul className="p-2 bg-base-100 z-10">
+                    {n.subItems?.map((s, j) => {
+                      return (
+                        <li key={j}>
+                          <Link href={s.path}>{s.title}</Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 </li>
               );
             })}

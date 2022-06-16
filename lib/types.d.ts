@@ -6,10 +6,17 @@ export interface SiteMetadata {
   email: string;
 }
 
+export interface NavItem {
+  title: string;
+  path: string;
+  subItems?: NavItem[];
+}
+
 export interface Page {
   title: string;
   slug: string;
   description?: string;
+  sections: Section[];
 }
 
 export interface HomePage extends Page {
@@ -17,8 +24,8 @@ export interface HomePage extends Page {
   description: string;
 }
 
-export interface NavItem {
+export interface Section {
   title: string;
-  path: string;
-  subItems?: NavItem[];
+  featuredImage?: string;
+  content: string;
 }
