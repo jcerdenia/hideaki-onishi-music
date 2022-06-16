@@ -14,19 +14,19 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <PageLayout {...props}>
-      <div className="mx-auto lg:max-w-7xl relative flex h-[calc(100vh-84px)]">
+      <div className="max-w-7xl mx-auto relative flex h-[calc(100vh-84px)]">
         <div
           className="absolute left-0 top-0 h-[50%] w-[100%] bg-cover bg-top opacity-70"
           style={{ backgroundImage: `url(${site.featuredImage})` }}
         />
 
         <div className="hero">
-          <div className="hero-content bg-base-100 p-6 rounded">
-            <div className="max-w-xl md:max-w-4xl">
+          <div className="hero-content bg-base-100 p-4 rounded">
+            <div className="max-w-4xl">
               <h1 className="text-5xl md:text-7xl font-bold">{page.tagline}</h1>
 
               <div
-                className="prose text-2xl md:text-3xl my-8 text-gray-500 font-thin"
+                className="prose text-2xl md:text-3xl my-8 opacity-70 font-thin"
                 dangerouslySetInnerHTML={{ __html: page.description }}
               />
 

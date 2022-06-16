@@ -9,11 +9,11 @@ interface AppNavbarProps {
 
 const AppNavbar = ({ brand, email, navItems }: AppNavbarProps) => {
   return (
-    <div className="bg-base-100 px-4 z-20">
-      <div className="navbar mx-auto max-w-7xl px-0 h-[84px] bg-base-100 z-20">
+    <div className="bg-base-100 z-20">
+      <div className="navbar mx-auto max-w-7xl px-4 h-[84px] z-20">
         <div className="flex-1">
           <Link href="/" passHref>
-            <a className="text-xl md:text-2xl font-semibold">{brand}</a>
+            <a className="text-2xl font-semibold">{brand}</a>
           </Link>
         </div>
 
