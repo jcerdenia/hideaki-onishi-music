@@ -12,7 +12,7 @@ interface PageProps {
 const Page: NextPage<PageProps> = (props) => {
   return (
     <PageLayout {...props}>
-      <div className="container mx-auto max-w-5xl pt-8">
+      <div className="container mx-auto max-w-4xl pt-8">
         <h1 className="text-3xl font-bold">{props.page.title}</h1>
 
         <p className="py-6">This is the {props.page.title} page.</p>

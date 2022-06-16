@@ -1,3 +1,11 @@
+export interface SiteMetadata {
+  title: string;
+  description: string;
+  featuredImage: string;
+  author: string;
+  email: string;
+}
+
 export interface Page {
   title: string;
   slug: string;
@@ -13,11 +21,4 @@ export interface NavItem {
   title: string;
   path: string;
   subItems?: NavItem[];
-}
-
-export interface SiteMetadata {
-  title: string;
-  description: string;
-  author: string;
-  email: string;
 }

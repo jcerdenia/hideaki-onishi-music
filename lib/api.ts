@@ -1,5 +1,5 @@
 import type { Page, HomePage, NavItem, SiteMetadata } from "./types";
-import dummyData from "./dummy-data";
+import dummyData from "../dummy-data";
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
   return dummyData.site;

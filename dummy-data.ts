@@ -1,4 +1,4 @@
-import type { SiteMetadata, HomePage, Page } from "./types";
+import type { SiteMetadata, HomePage, Page } from "./lib/types";
 
 interface DummyData {
   site: SiteMetadata;
@@ -10,6 +10,7 @@ const dummyData: DummyData = {
   site: {
     title: "Hideaki Onishi Music",
     description: "Lorem ipsum dolor sit amet.",
+    featuredImage: "/images/mahler.png",
     author: "Hideaki Onishi",
     email: "name@email.com",
   },
@@ -17,8 +18,7 @@ const dummyData: DummyData = {
     title: "Home",
     slug: "",
     tagline: "Where Theory and Practice Merge",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.</p>`,
   },
   pages: [
     {
