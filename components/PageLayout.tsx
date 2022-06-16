@@ -22,7 +22,7 @@ const PageLayout = ({ site, page, navItems, children }: PageLayoutProps) => {
 
       <AppNavbar brand={site.title} navItems={navItems} email={site.email} />
 
-      <div className="container mx-auto md:max-w-7xl px-4">{children}</div>
+      {children}
     </div>
   );
 };

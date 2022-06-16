@@ -31,18 +31,39 @@ const dummyData: DummyData = {
       sections: [
         {
           title: "About Hideaki Onishi",
-          content: lipsum,
+          content: lipsum + lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Teaching Philosophy",
           content: lipsum,
-          featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Hideaki Onishi Music",
           content: lipsum,
           featuredImage: "/images/placeholder.jpeg",
+        },
+        {
+          title: "Testimonials",
+          content: lipsum,
+          featuredImage: "/images/placeholder.jpeg",
+        },
+        {
+          title: "Music Theory",
+          content: lipsum,
+        },
+        {
+          title: "Why HOM?",
+          content: lipsum,
+        },
+        {
+          title: "NIE Classes",
+          content: lipsum,
+          featuredImage: "/images/placeholder.jpeg",
+        },
+        {
+          title: "Accomplishments",
+          content: lipsum,
         },
       ],
     },
@@ -62,6 +83,11 @@ const dummyData: DummyData = {
         },
         {
           title: "ABRSM",
+          content: lipsum,
+          featuredImage: "/images/placeholder.jpeg",
+        },
+        {
+          title: "Upper Theory (Advanced)",
           content: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },

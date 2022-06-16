@@ -14,7 +14,7 @@ const Home: NextPage<HomeProps> = (props) => {
 
   return (
     <PageLayout {...props}>
-      <div className="relative flex h-[calc(100vh-84px)]">
+      <div className="mx-auto lg:max-w-7xl relative flex h-[calc(100vh-84px)]">
         <div
           className="absolute left-0 top-0 h-[50%] w-[100%] bg-cover bg-top opacity-70"
           style={{ backgroundImage: `url(${site.featuredImage})` }}

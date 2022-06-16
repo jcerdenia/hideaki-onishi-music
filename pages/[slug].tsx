@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { getDynamicPages, getNavItems, getSiteMetadata } from "../lib/api";
 import PageLayout from "../components/PageLayout";
 import { slugify } from "../lib/utils";
@@ -15,41 +16,42 @@ const Page: NextPage<PageProps> = (props) => {
 
   return (
     <PageLayout {...props}>
-      <div className="container mx-auto max-w-7xl pt-8 prose">
-        <div className="max-w-4xl mx-auto">
+      <div className="my-4 px-4">
+        <div className="mx-auto max-w-7xl prose">
           <h1>{page.title}</h1>
-        </div>
 
-        {page.sections.map((s, i) => {
-          return (
-            <div key={i} id={slugify(s.title)} className="max-w-5xl mx-auto">
-              {s.featuredImage ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  className="w-4xl mx-auto"
-                  src={s.featuredImage}
-                  alt={`image for ${s.title}`}
-                />
-              ) : null}
-
+          {page.sections.map((s, i) => {
+            return (
               <div
-                className={
-                  i % 2 !== 0
-                    ? "max-w-5xl mx-auto bg-base-200 border rounded"
-                    : undefined
-                }
+                key={i}
+                id={slugify(s.title)}
+                className={`my-4 ${
+                  s.featuredImage ? "grid md:grid-cols-2 md:gap-8" : ""
+                } ${i % 2 !== 0 ? "" : ""}`}
               >
-                <section className="max-w-4xl mx-auto">
-                  <h2 className="mt-8">{s.title}</h2>
-                  <div
-                    className="text-lg mb-8"
-                    dangerouslySetInnerHTML={{ __html: s.content }}
-                  />
-                </section>
+                {s.featuredImage ? (
+                  <div className="flex flex-col justify-center">
+                    <img
+                      className="mx-auto"
+                      src={s.featuredImage}
+                      alt={`image for ${s.title}`}
+                    />
+                  </div>
+                ) : null}
+
+                <div className="flex flex-col justify-center">
+                  <section className="max-w-4xl mx-auto">
+                    <h2 className="mt-0">{s.title}</h2>
+                    <div
+                      className="text-lg"
+                      dangerouslySetInnerHTML={{ __html: s.content }}
+                    />
+                  </section>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </PageLayout>
   );
