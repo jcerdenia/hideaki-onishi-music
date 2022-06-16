@@ -11,7 +11,7 @@ interface PageLayoutProps {
 
 const PageLayout = ({ site, page, navItems, children }: PageLayoutProps) => {
   return (
-    <div>
+    <div className="font-raleway">
       <Head>
         <title>{`${page.title} | ${site.title}`}</title>
         <meta
@@ -20,11 +20,9 @@ const PageLayout = ({ site, page, navItems, children }: PageLayoutProps) => {
         />
       </Head>
 
-      <div className="container mx-auto xl:max-w-7xl px-4 font-raleway">
-        <AppNavbar brand={site.title} navItems={navItems} email={site.email} />
+      <AppNavbar brand={site.title} navItems={navItems} email={site.email} />
 
-        {children}
-      </div>
+      <div className="container mx-auto md:max-w-7xl px-4">{children}</div>
     </div>
   );
 };
