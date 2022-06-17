@@ -29,7 +29,7 @@ const Page: NextPage<PageProps> = (props) => {
             <div
               id={slug}
               className={
-                "max-w-7xl mx-auto my-4 prose" +
+                "max-w-7xl mx-auto prose" +
                 (s.featuredImage ? " grid md:grid-cols-2 gap-4" : "")
               }
             >
