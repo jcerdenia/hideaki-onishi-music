@@ -1,9 +1,11 @@
-import type { SiteMetadata, HomePage, Page } from "./lib/types";
+import type { SiteMetadata, HomePage, Page, Post } from "./lib/types";
 
 interface DummyData {
   site: SiteMetadata;
   home: HomePage;
+  blog: Page;
   pages: Page[];
+  posts: Post[];
 }
 
 const lipsum =
@@ -24,6 +26,31 @@ const dummyData: DummyData = {
     description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.</p>`,
     sections: [],
   },
+  blog: {
+    title: "Dr Onishi's Musings",
+    slug: "blog",
+    sections: [],
+  },
+  posts: [
+    {
+      slug: "my-first-post",
+      title: "My First Post",
+      description: "This is a post.",
+      content: lipsum + lipsum,
+      date: "2022-06-16",
+      author: "Hideaki Onishi",
+      tags: ["music-theory", "mahler"],
+    },
+    {
+      slug: "my-second-post",
+      title: "My Second Post",
+      description: "This is another post.",
+      content: lipsum + lipsum,
+      date: "2022-06-17",
+      author: "Hideaki Onishi",
+      tags: ["music-theory", "schoenberg"],
+    },
+  ],
   pages: [
     {
       title: "About",
@@ -110,7 +137,6 @@ const dummyData: DummyData = {
         {
           title: "Improvisation",
           content: lipsum,
-          featuredImage: "/images/placeholder.jpeg",
         },
       ],
     },

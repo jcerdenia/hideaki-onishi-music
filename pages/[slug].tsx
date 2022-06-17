@@ -17,8 +17,8 @@ const Page: NextPage<PageProps> = (props) => {
 
   return (
     <PageLayout {...props}>
-      <div className="max-w-7xl mx-auto px-4 prose opacity-70">
-        <h3 className="uppercase">{page.title}</h3>
+      <div className="max-w-7xl mx-auto px-4 prose">
+        <h3 className="uppercase opacity-70">{page.title}</h3>
       </div>
 
       {page.sections.map((s, i) => {
