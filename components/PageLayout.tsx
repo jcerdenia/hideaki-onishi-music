@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import type { SiteMetadata, NavItem, Page } from "../lib/types";
+import Navigation from "./Navigation";
 
 interface PageLayoutProps {
   site: SiteMetadata;
@@ -21,9 +22,11 @@ const PageLayout = ({ site, page, navItems, children }: PageLayoutProps) => {
         />
       </Head>
 
-      <Navbar brand={site.title} navItems={navItems} email={site.email} />
-      {children}
-      <Footer />
+      <Navigation site={site} navItems={navItems}>
+        {children}
+
+        <Footer />
+      </Navigation>
     </div>
   );
 };

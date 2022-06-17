@@ -5,9 +5,10 @@ interface NavbarProps {
   brand: string;
   email: string;
   navItems: NavItem[];
+  toggleId: string;
 }
 
-const Navbar = ({ brand, email, navItems }: NavbarProps) => {
+const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
   return (
     <div className="bg-base-100 z-20">
       <div className="navbar mx-auto max-w-7xl px-4 h-[84px] z-20">
@@ -59,24 +60,26 @@ const Navbar = ({ brand, email, navItems }: NavbarProps) => {
             </ul>
           </div>
 
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />
-              </svg>
-            </label>
-          </div>
+          <label
+            tabIndex={0}
+            htmlFor={toggleId}
+            className="btn btn-ghost lg:hidden"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
+            </svg>
+          </label>
         </div>
       </div>
     </div>

@@ -21,8 +21,8 @@ const Home: NextPage<HomeProps> = (props) => {
         />
 
         <div className="hero">
-          <div className="hero-content bg-base-100 p-4 rounded mt-[calc(100vh/3)]">
-            <div className="max-w-4xl">
+          <div className="hero-content p-0 bg-base-100 rounded mt-[calc(100vh/4)]">
+            <div className="max-w-4xl p-4">
               <h1 className="text-5xl md:text-7xl font-bold">{page.tagline}</h1>
 
               <div
@@ -36,7 +36,9 @@ const Home: NextPage<HomeProps> = (props) => {
           </div>
         </div>
 
-        <div className="my-8 max-w-4xl mx-auto">More content can go here.</div>
+        <div className="my-8 max-w-4xl mx-auto px-4 ">
+          More content can go here.
+        </div>
       </div>
     </PageLayout>
   );
