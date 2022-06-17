@@ -36,7 +36,7 @@ const Page: NextPage<PageProps> = (props) => {
               {s.featuredImage ? (
                 <div className="flex flex-col justify-center px-4">
                   <img
-                    className="mt-4 mb-0"
+                    className="mt-4 mb-0 md:mb-4"
                     src={s.featuredImage}
                     alt={`image for ${s.title}`}
                   />

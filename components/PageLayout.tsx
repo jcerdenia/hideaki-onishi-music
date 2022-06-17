@@ -1,6 +1,7 @@
 import Head from "next/head";
-import AppNavbar from "./AppNavbar";
-import type { Page, NavItem, SiteMetadata } from "../lib/types";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
+import type { SiteMetadata, NavItem, Page } from "../lib/types";
 
 interface PageLayoutProps {
   site: SiteMetadata;
@@ -20,9 +21,9 @@ const PageLayout = ({ site, page, navItems, children }: PageLayoutProps) => {
         />
       </Head>
 
-      <AppNavbar brand={site.title} navItems={navItems} email={site.email} />
-
+      <Navbar brand={site.title} navItems={navItems} email={site.email} />
       {children}
+      <Footer />
     </div>
   );
 };

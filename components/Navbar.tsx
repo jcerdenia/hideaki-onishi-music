@@ -1,13 +1,13 @@
 import Link from "next/link";
 import type { NavItem } from "../lib/types";
 
-interface AppNavbarProps {
+interface NavbarProps {
   brand: string;
   email: string;
   navItems: NavItem[];
 }
 
-const AppNavbar = ({ brand, email, navItems }: AppNavbarProps) => {
+const Navbar = ({ brand, email, navItems }: NavbarProps) => {
   return (
     <div className="bg-base-100 z-20">
       <div className="navbar mx-auto max-w-7xl px-4 h-[84px] z-20">
@@ -83,4 +83,4 @@ const AppNavbar = ({ brand, email, navItems }: AppNavbarProps) => {
   );
 };
 
-export default AppNavbar;
+export default Navbar;
