@@ -11,10 +11,10 @@ interface NavbarProps {
 const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
   return (
     <div className="bg-base-100 z-20">
-      <div className="navbar mx-auto max-w-7xl px-4 h-[84px] z-20">
+      <div className="navbar mx-auto max-w-6xl px-4 h-[84px] z-20">
         <div className="flex-1">
           <Link href="/" passHref>
-            <a className="text-2xl font-semibold">{brand}</a>
+            <a className="text-xl font-semibold">{brand}</a>
           </Link>
         </div>
 

@@ -17,7 +17,7 @@ const Page: NextPage<PageProps> = (props) => {
 
   return (
     <PageLayout {...props}>
-      <div className="max-w-7xl mx-auto px-4 prose">
+      <div className="max-w-6xl mx-auto px-4 prose">
         <h3 className="uppercase opacity-70">{page.title}</h3>
       </div>
 
@@ -29,7 +29,7 @@ const Page: NextPage<PageProps> = (props) => {
             <div
               id={slug}
               className={
-                "max-w-7xl mx-auto prose" +
+                "max-w-6xl mx-auto prose" +
                 (s.featuredImage ? " grid md:grid-cols-2 gap-4" : "")
               }
             >
@@ -44,17 +44,14 @@ const Page: NextPage<PageProps> = (props) => {
               ) : null}
 
               <div className="flex flex-col justify-center">
-                <section className="max-w-4xl mx-auto px-4">
+                <section className="max-w-3xl mx-auto px-4">
                   <Link href={`#${slug}`} passHref>
                     <a className="no-underline hover:opacity-70">
                       <h2 className="mt-4">{s.title}</h2>
                     </a>
                   </Link>
 
-                  <div
-                    className="text-lg"
-                    dangerouslySetInnerHTML={{ __html: s.content }}
-                  />
+                  <div dangerouslySetInnerHTML={{ __html: s.content }} />
                 </section>
               </div>
             </div>

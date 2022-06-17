@@ -18,7 +18,7 @@ interface BlogProps {
 const Blog: NextPage<BlogProps> = ({ site, navItems, page, posts }) => {
   return (
     <PageLayout site={site} navItems={navItems} page={page}>
-      <div className="max-w-7xl mx-auto px-4 prose">
+      <div className="max-w-6xl mx-auto px-4 prose">
         <h3 className="uppercase opacity-70">{page.title}</h3>
 
         <p className="text-lg">This page will display a list of posts.</p>
@@ -27,12 +27,9 @@ const Blog: NextPage<BlogProps> = ({ site, navItems, page, posts }) => {
           return (
             <section key={i}>
               <h1 className="mb-2">{p.title}</h1>
-              <div className="text-xl opacity-70 mb-6">{p.description}</div>
+              <div className="text-lg opacity-70 mb-6">{p.description}</div>
 
-              <div
-                className="text-lg"
-                dangerouslySetInnerHTML={{ __html: p.content }}
-              />
+              <div dangerouslySetInnerHTML={{ __html: p.content }} />
 
               <p className="opacity-70">Published {p.date}</p>
             </section>
