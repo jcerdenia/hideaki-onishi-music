@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { getDynamicPages, getNavItems, getSiteMetadata } from "../lib/api";
 import PageLayout from "../components/PageLayout";
+import Link from "next/link";
 import { slugify } from "../lib/utils";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import type { Page, NavItem, SiteMetadata } from "../lib/types";
@@ -17,22 +18,25 @@ const Page: NextPage<PageProps> = (props) => {
   return (
     <PageLayout {...props}>
       <div className="max-w-7xl mx-auto px-4 prose opacity-70">
-        <h2>{page.title}</h2>
+        <h3 className="uppercase">{page.title}</h3>
       </div>
 
       {page.sections.map((s, i) => {
+        const slug = slugify(s.title);
+
         return (
-          <div key={i} className={i % 2 !== 0 ? "bg-base-200" : undefined}>
+          <div key={i} className="even:bg-base-200">
             <div
-              id={slugify(s.title)}
-              className={`max-w-7xl mx-auto my-4 prose ${
-                s.featuredImage ? "grid md:grid-cols-2 gap-4" : undefined
-              }`}
+              id={slug}
+              className={
+                "max-w-7xl mx-auto my-4 prose" +
+                (s.featuredImage ? " grid md:grid-cols-2 gap-4" : "")
+              }
             >
               {s.featuredImage ? (
                 <div className="flex flex-col justify-center px-4">
                   <img
-                    className="mx-auto"
+                    className="mt-4 mb-0"
                     src={s.featuredImage}
                     alt={`image for ${s.title}`}
                   />
@@ -41,7 +45,11 @@ const Page: NextPage<PageProps> = (props) => {
 
               <div className="flex flex-col justify-center">
                 <section className="max-w-4xl mx-auto px-4">
-                  <h1 className="mt-4">{s.title}</h1>
+                  <Link href={`#${slug}`} passHref>
+                    <a className="no-underline hover:opacity-70">
+                      <h2 className="mt-4">{s.title}</h2>
+                    </a>
+                  </Link>
 
                   <div
                     className="text-lg"
