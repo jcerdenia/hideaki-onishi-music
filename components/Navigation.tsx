@@ -28,7 +28,7 @@ const Navigation = ({ site, navItems, children }: DrawerProps) => {
         className="drawer-toggle"
       />
 
-      <div className="drawer-content">
+      <div className="drawer-content scroll-smooth">
         <Navbar
           brand={site.title}
           navItems={navItems}
