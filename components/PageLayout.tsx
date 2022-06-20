@@ -9,24 +9,42 @@ interface PageLayoutProps {
   page: Page;
   navItems: NavItem[];
   children: React.ReactNode;
+  noNavbarAndFooter?: boolean;
 }
 
-const PageLayout = ({ site, page, navItems, children }: PageLayoutProps) => {
+const PageLayout = ({
+  site,
+  page,
+  navItems,
+  children,
+  noNavbarAndFooter = false,
+}: PageLayoutProps) => {
   return (
     <div className="font-raleway">
       <Head>
         <title>{`${page.title} | ${site.title}`}</title>
+        <meta property="og:title" content={page.title} />
+        <meta property="og:type" content="website" />
         <meta
           name="description"
           content={page.description || site.description}
         />
+        <meta
+          property="og:description"
+          content={page.description || site.description}
+        />
+        <meta property="og:image" content={site.featuredImage} />
       </Head>
 
-      <Navigation site={site} navItems={navItems}>
-        {children}
+      {!noNavbarAndFooter ? (
+        <Navigation site={site} navItems={navItems}>
+          {children}
 
-        <Footer />
-      </Navigation>
+          <Footer />
+        </Navigation>
+      ) : (
+        <>{children}</>
+      )}
     </div>
   );
 };

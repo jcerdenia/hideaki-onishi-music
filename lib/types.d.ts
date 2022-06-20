@@ -17,6 +17,7 @@ export interface Page {
   slug: string;
   description?: string;
   sections: Section[];
+  featuredImage?: string;
 }
 
 export interface HomePage extends Page {
