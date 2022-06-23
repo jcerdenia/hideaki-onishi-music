@@ -22,7 +22,7 @@ const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
       <div className="navbar mx-auto max-w-5xl px-4 h-[84px] z-20">
         <div className="flex-1">
           <Link href="/" passHref>
-            <a className="text-xl font-semibold">{brand}</a>
+            <a className="text-xl font-bold">{brand}</a>
           </Link>
         </div>
 
