@@ -22,12 +22,12 @@ const dummyData: DummyData = {
   home: {
     title: "Home",
     slug: "",
-    tagline: "Where Theory and Practice Merge",
-    description: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation.</p>`,
+    tagline: "Hideaki Onishi Music",
+    description: `Where theory and practice merge`,
     sections: [],
   },
   blog: {
-    title: "Dr Onishi's Musings",
+    title: "DOM",
     slug: "blog",
     sections: [],
   },
