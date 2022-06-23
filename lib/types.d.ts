@@ -14,6 +14,7 @@ export interface NavItem {
 
 export interface Page {
   title: string;
+  shortTitle?: string;
   slug: string;
   description?: string;
   sections: Section[];

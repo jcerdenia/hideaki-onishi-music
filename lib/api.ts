@@ -29,7 +29,7 @@ export const getNavItems = async (): Promise<NavItem[]> => {
 
   return [home, ...pages, blog].map((p: Page) => {
     return {
-      title: p.title,
+      title: p.shortTitle || p.title,
       path: `/${p.slug}`,
       subItems: p.sections.map((s) => {
         return {

@@ -27,7 +27,8 @@ const dummyData: DummyData = {
     sections: [],
   },
   blog: {
-    title: "DOM",
+    title: "Dr Onishi's Musings",
+    shortTitle: "DOM",
     slug: "blog",
     sections: [],
   },
@@ -95,7 +96,7 @@ const dummyData: DummyData = {
       ],
     },
     {
-      title: "Offerings",
+      title: "Class Offerings",
       slug: "offerings",
       sections: [
         {
