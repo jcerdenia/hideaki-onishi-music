@@ -32,14 +32,26 @@ const dummyData: DummyData = {
     sections: [
       {
         title: "Dr Onishi's Musings",
-        content: "Lorem ipsum dolor sit amet.",
+        content: "<p>Optional description here.</p>",
+        //featuredImage: "/images/placeholder.jpeg",
       },
     ],
   },
   posts: [
     {
+      slug: "my-third-post",
+      title:
+        "My Third Post: Sed do eiusmod tempor incididunt ut labore et dolore",
+      description: "Few know this.",
+      featuredImage: "/images/mahler.png",
+      content: lipsum + lipsum,
+      date: "2022-06-22",
+      author: "Hideaki Onishi",
+      tags: ["music-theory", "mahler"],
+    },
+    {
       slug: "my-first-post",
-      title: "My First Post",
+      title: "My First Post: Lorem ipsum dolor sit amet",
       description: "This is a post.",
       featuredImage: "/images/mahler.png",
       content: lipsum + lipsum,
@@ -49,7 +61,7 @@ const dummyData: DummyData = {
     },
     {
       slug: "my-second-post",
-      title: "My Second Post",
+      title: "My Second Post: Consectetur adipscing elit",
       description: "This is another post.",
       content: lipsum + lipsum,
       date: "2022-06-17",

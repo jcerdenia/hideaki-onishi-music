@@ -6,8 +6,9 @@ import {
   getPosts,
 } from "../../lib/api";
 import PageLayout from "../../components/PageLayout";
+import PageSection from "../../components/PageSection";
 import Link from "next/link";
-import { compareBy, slugify } from "../../lib/utils";
+import { compareBy } from "../../lib/utils";
 import type { NextPage, GetStaticProps } from "next";
 import type { SiteMetadata, NavItem, Page, Post } from "../../lib/types";
 
@@ -21,62 +22,54 @@ interface PostsProps {
 const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
   return (
     <PageLayout site={site} navItems={navItems} page={page}>
-      <div className="max-w-5xl mx-auto px-4 min-h-[calc(100vh-84px)]">
-        <div className="grid grid-cols-3">
-          <div className="col-span-3 md:col-span-1 my-4 prose">
-            {page.sections.map((s, i) => {
-              const slug = slugify(s.title);
+      <div className="min-h-[calc(100vh-84px)]">
+        {page.sections.map((s, i) => {
+          return (
+            <PageSection key={i} className="max-w-5xl mx-auto" section={s} />
+          );
+        })}
 
-              return (
-                <div key={i}>
-                  <div id={slug}>
-                    <Link href={`#${slug}`} passHref>
-                      <a className="no-underline hover:opacity-70">
-                        <h3 className="mt-0">{s.title}</h3>
-                      </a>
-                    </Link>
-
-                    <div dangerouslySetInnerHTML={{ __html: s.content }} />
-                  </div>
+        <div className="max-w-3xl mx-auto my-4 px-4">
+          {posts.map((p, i) => {
+            return (
+              <div
+                key={i}
+                className="md:grid md:grid-cols-4 gap-2 border-t py-8 prose"
+              >
+                <div className="col-span-1 opacity-70">
+                  {new Date(p.date).toLocaleDateString("default", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
                 </div>
-              );
-            })}
-          </div>
 
-          <div className="col-span-3 md:col-span-2 my-4 prose">
-            {posts.map((p, i) => {
-              return (
-                <div key={i} className="card card-compact odd:bg-slate-100">
-                  {p.featuredImage ? (
-                    <figure>
-                      <img
-                        className="m-0"
-                        src={p.featuredImage}
-                        alt="featured post image"
-                      />
-                    </figure>
-                  ) : null}
+                <div
+                  className={
+                    p.featuredImage ? "md:col-span-2" : "md:col-span-3"
+                  }
+                >
+                  <Link href={`/posts/${p.slug}`} passHref>
+                    <a className="no-underline hover:opacity-70">
+                      <h3 className="my-0 font-bold">{p.title}</h3>
+                    </a>
+                  </Link>
 
-                  <div className="card-body">
-                    <div className="text-sm">
-                      {new Date(p.date).toLocaleDateString("default", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </div>
-
-                    <Link href={`/posts/${p.slug}`} passHref>
-                      <a>
-                        <h2 className="my-2">{p.title}</h2>
-                      </a>
-                    </Link>
-                    <div className="text-lg opacity-70">{p.description}</div>
-                  </div>
+                  <div className="mb-4 md:mb-0">{p.description}</div>
                 </div>
-              );
-            })}
-          </div>
+
+                {p.featuredImage ? (
+                  <div className="md:col-span-1">
+                    <img
+                      className="m-0 p-0"
+                      src={p.featuredImage}
+                      alt="featured post image"
+                    />
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
         </div>
       </div>
     </PageLayout>
