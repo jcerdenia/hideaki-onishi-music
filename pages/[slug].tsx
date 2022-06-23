@@ -25,7 +25,7 @@ const Page: NextPage<PageProps> = (props) => {
         const slug = slugify(s.title);
 
         return (
-          <div key={i} className="even:bg-base-200">
+          <div key={i} className="even:bg-slate-100">
             <div
               id={slug}
               className={
