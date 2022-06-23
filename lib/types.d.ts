@@ -36,6 +36,7 @@ export interface Post {
   slug: string;
   title: string;
   description: string;
+  featuredImage?: string;
   content: string;
   date: string;
   author: string;

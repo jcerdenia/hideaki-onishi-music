@@ -17,15 +17,17 @@ const Page: NextPage<PageProps> = (props) => {
 
   return (
     <PageLayout {...props}>
-      <div className="max-w-5xl mx-auto px-4 prose">
+      {/*
+      <div className="max-w-5xl mx-auto px-4 prose bg-base-100">
         <h3 className="opacity-70 font-light uppercase">{page.title}</h3>
       </div>
+      */}
 
       {page.sections.map((s, i) => {
         const slug = slugify(s.title);
 
         return (
-          <div key={i} className="even:bg-slate-100">
+          <div key={i} className="odd:bg-slate-100">
             <div
               id={slug}
               className={

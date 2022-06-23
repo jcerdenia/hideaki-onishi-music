@@ -24,7 +24,7 @@ const Home: NextPage<HomeProps> = (props) => {
           style={{ backgroundImage: `url(${site.featuredImage})` }}
         />
 
-        <div className="max-w-3xl mx-auto bg-base-100 mt-[calc(100vh/4)] p-4 rounded">
+        <div className="max-w-3xl mx-auto bg-base-100 mt-[calc(100vh/3)] p-4 rounded">
           <h1 className="mx-auto text-4xl md:text-6xl font-bold">
             {page.tagline}
           </h1>
