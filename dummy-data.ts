@@ -27,16 +27,21 @@ const dummyData: DummyData = {
     sections: [],
   },
   blog: {
-    title: "Dr Onishi's Musings",
-    shortTitle: "DOM",
-    slug: "blog",
-    sections: [],
+    title: "DOM",
+    slug: "posts",
+    sections: [
+      {
+        title: "Dr Onishi's Musings",
+        content: "Lorem ipsum dolor sit amet.",
+      },
+    ],
   },
   posts: [
     {
       slug: "my-first-post",
       title: "My First Post",
       description: "This is a post.",
+      featuredImage: "/images/mahler.png",
       content: lipsum + lipsum,
       date: "2022-06-16",
       author: "Hideaki Onishi",
@@ -96,7 +101,7 @@ const dummyData: DummyData = {
       ],
     },
     {
-      title: "Class Offerings",
+      title: "Offerings",
       slug: "offerings",
       sections: [
         {
