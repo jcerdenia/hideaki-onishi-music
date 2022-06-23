@@ -18,7 +18,7 @@ interface BlogProps {
 const Blog: NextPage<BlogProps> = ({ site, navItems, page, posts }) => {
   return (
     <PageLayout site={site} navItems={navItems} page={page}>
-      <div className="max-w-6xl mx-auto px-4 prose">
+      <div className="max-w-5xl mx-auto px-4 prose">
         <h3 className="uppercase opacity-70">{page.title}</h3>
 
         <p className="text-lg">This page will display a list of posts.</p>

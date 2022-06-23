@@ -17,8 +17,8 @@ const Page: NextPage<PageProps> = (props) => {
 
   return (
     <PageLayout {...props}>
-      <div className="max-w-6xl mx-auto px-4 prose">
-        <h3 className="uppercase opacity-70">{page.title}</h3>
+      <div className="max-w-5xl mx-auto px-4 prose">
+        <h3 className="opacity-70 font-light uppercase">{page.title}</h3>
       </div>
 
       {page.sections.map((s, i) => {
@@ -29,7 +29,7 @@ const Page: NextPage<PageProps> = (props) => {
             <div
               id={slug}
               className={
-                "max-w-6xl mx-auto prose" +
+                "max-w-5xl mx-auto prose" +
                 (s.featuredImage ? " grid md:grid-cols-2 gap-4" : "")
               }
             >
@@ -47,7 +47,7 @@ const Page: NextPage<PageProps> = (props) => {
                 <section className="max-w-3xl mx-auto px-4">
                   <Link href={`#${slug}`} passHref>
                     <a className="no-underline hover:opacity-70">
-                      <h2 className="mt-4">{s.title}</h2>
+                      <h3 className="mt-4">{s.title}</h3>
                     </a>
                   </Link>
 
