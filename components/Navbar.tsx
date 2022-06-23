@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import type { NavItem } from "../lib/types";
 
 interface NavbarProps {
@@ -9,6 +10,13 @@ interface NavbarProps {
 }
 
 const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
+  const { asPath } = useRouter();
+
+  const isActive = (path: string) => {
+    const i = asPath.indexOf("#") > 0 ? asPath.indexOf("#") : undefined;
+    return asPath.slice(0, i) === path;
+  };
+
   return (
     <div className="bg-base-100 z-20">
       <div className="navbar mx-auto max-w-5xl px-4 h-[84px] z-20">
@@ -25,7 +33,7 @@ const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
                 return (
                   <li key={i}>
                     <Link href={n.path} passHref>
-                      <a>
+                      <a className={isActive(n.path) ? "font-bold" : ""}>
                         {n.title}
                         {n.subItems && n.subItems.length ? (
                           <svg
