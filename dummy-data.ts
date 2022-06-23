@@ -33,42 +33,9 @@ const dummyData: DummyData = {
       {
         title: "Dr Onishi's Musings",
         content: "<p>Optional description here.</p>",
-        //featuredImage: "/images/placeholder.jpeg",
       },
     ],
   },
-  posts: [
-    {
-      slug: "my-third-post",
-      title:
-        "My Third Post: Sed do eiusmod tempor incididunt ut labore et dolore",
-      description: "Few know this.",
-      featuredImage: "/images/mahler.png",
-      content: lipsum + lipsum,
-      date: "2022-06-22",
-      author: "Hideaki Onishi",
-      tags: ["music-theory", "mahler"],
-    },
-    {
-      slug: "my-first-post",
-      title: "My First Post: Lorem ipsum dolor sit amet",
-      description: "This is a post.",
-      featuredImage: "/images/mahler.png",
-      content: lipsum + lipsum,
-      date: "2022-06-16",
-      author: "Hideaki Onishi",
-      tags: ["music-theory", "mahler"],
-    },
-    {
-      slug: "my-second-post",
-      title: "My Second Post: Consectetur adipscing elit",
-      description: "This is another post.",
-      content: lipsum + lipsum,
-      date: "2022-06-17",
-      author: "Hideaki Onishi",
-      tags: ["music-theory", "schoenberg"],
-    },
-  ],
   pages: [
     {
       title: "About",
@@ -157,6 +124,38 @@ const dummyData: DummyData = {
           content: lipsum,
         },
       ],
+    },
+  ],
+  posts: [
+    {
+      slug: "my-third-post",
+      title:
+        "My Third Post: Sed do eiusmod tempor incididunt ut labore et dolore",
+      description: "Few know this.",
+      featuredImage: "/images/placeholder.jpeg",
+      content: lipsum + lipsum,
+      date: "2022-06-22",
+      author: "Hideaki Onishi",
+      tags: ["music-theory", "mahler"],
+    },
+    {
+      slug: "my-first-post",
+      title: "My First Post: Lorem ipsum dolor sit amet",
+      description: "This is a post.",
+      featuredImage: "/images/placeholder.jpeg",
+      content: lipsum + lipsum,
+      date: "2022-06-16",
+      author: "Hideaki Onishi",
+      tags: ["music-theory", "mahler"],
+    },
+    {
+      slug: "my-second-post",
+      title: "My Second Post: Consectetur adipscing elit",
+      description: "This is another post.",
+      content: lipsum + lipsum,
+      date: "2022-06-17",
+      author: "Hideaki Onishi",
+      tags: ["music-theory", "schoenberg"],
     },
   ],
 };

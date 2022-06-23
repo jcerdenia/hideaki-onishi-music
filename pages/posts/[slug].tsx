@@ -20,32 +20,44 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
 
   return (
     <PageLayout {...{ site, navItems, page }}>
-      <div>
-        <div id={post.slug} className="max-w-5xl mx-auto prose">
-          {post.featuredImage ? (
-            <div className="flex flex-col justify-center px-4">
-              <Link href={post.featuredImage} passHref>
-                <a className="mt-4 mb-0 md:mb-4 hover:opacity-70">
-                  <img
-                    className="m-0"
-                    src={post.featuredImage}
-                    alt={`image for ${post.title}`}
-                  />
-                </a>
-              </Link>
-            </div>
-          ) : null}
+      <div id={post.slug} className="max-w-5xl mx-auto prose">
+        {post.featuredImage ? (
+          <div className="flex flex-col justify-center px-4">
+            <Link href={post.featuredImage} passHref>
+              <a className="mt-4 mb-0 md:mb-4">
+                <img
+                  className="m-0"
+                  width="100%"
+                  src={post.featuredImage}
+                  alt={`image for ${post.title}`}
+                />
+              </a>
+            </Link>
+          </div>
+        ) : null}
 
-          <div className="flex flex-col justify-center">
-            <section className="max-w-3xl mx-auto px-4">
-              <Link href={`#${post.slug}`} passHref>
-                <a className="no-underline hover:opacity-70">
-                  <h1 className="mt-4">{post.title}</h1>
-                </a>
-              </Link>
+        <div className="max-w-3xl mx-auto px-4 py-8">
+          <Link href={`#${post.slug}`} passHref>
+            <a className="no-underline hover:opacity-70">
+              <h1 className="mt-0 mb-2">{post.title}</h1>
+            </a>
+          </Link>
 
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            </section>
+          <div
+            className="font-semibold text-lg mb-4"
+            dangerouslySetInnerHTML={{ __html: post.description }}
+          />
+
+          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+
+          <div className="text-sm opacity-70">
+            Published on{" "}
+            {new Date(post.date).toLocaleDateString("default", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
           </div>
         </div>
       </div>
