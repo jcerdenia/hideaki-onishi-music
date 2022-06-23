@@ -66,7 +66,11 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
                       })}
                     </div>
 
-                    <h2 className="my-2">{p.title}</h2>
+                    <Link href={`/posts/${p.slug}`} passHref>
+                      <a>
+                        <h2 className="my-2">{p.title}</h2>
+                      </a>
+                    </Link>
                     <div className="text-lg opacity-70">{p.description}</div>
                   </div>
                 </div>
