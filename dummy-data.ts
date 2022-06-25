@@ -18,6 +18,7 @@ const dummyData: DummyData = {
     featuredImage: "/images/mahler.png",
     author: "Hideaki Onishi",
     email: "name@email.com",
+    copyright: "© 2022 Hideaki Onishi Music Pte. Ltd.",
   },
   home: {
     title: "Home",

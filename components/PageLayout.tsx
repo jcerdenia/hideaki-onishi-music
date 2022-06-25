@@ -40,7 +40,7 @@ const PageLayout = ({
         <Navigation site={site} navItems={navItems}>
           {children}
 
-          <Footer />
+          <Footer site={site} />
         </Navigation>
       ) : (
         <>{children}</>

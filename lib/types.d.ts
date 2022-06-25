@@ -4,6 +4,7 @@ export interface SiteMetadata {
   featuredImage: string;
   author: string;
   email: string;
+  copyright: string;
 }
 
 export interface NavItem {
