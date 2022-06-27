@@ -1,6 +1,6 @@
-import type { SiteMetadata, Page, HomePage, NavItem, Post } from "./types";
 import dummyData from "../dummy-data";
 import { slugify } from "./utils";
+import type { SiteMetadata, Page, HomePage, NavItem, Post } from "./types";
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
   return dummyData.site;

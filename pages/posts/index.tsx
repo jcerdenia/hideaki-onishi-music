@@ -21,7 +21,7 @@ interface PostsProps {
 
 const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
   return (
-    <PageLayout site={site} navItems={navItems} page={page}>
+    <PageLayout {...{ site, navItems, page }}>
       <div className="min-h-[calc(100vh-84px)]">
         {page.sections.map((s, i) => {
           return (

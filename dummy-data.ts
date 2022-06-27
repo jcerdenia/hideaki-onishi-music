@@ -19,6 +19,20 @@ const dummyData: DummyData = {
     author: "Hideaki Onishi",
     email: "name@email.com",
     copyright: "© 2022 Hideaki Onishi Music Pte. Ltd.",
+    socials: [
+      {
+        name: "Facebook",
+        url: "facebook.com",
+      },
+      {
+        name: "YouTube",
+        url: "youtube.com",
+      },
+      {
+        name: "Twitter",
+        url: "twitter.com",
+      },
+    ],
   },
   home: {
     title: "Home",

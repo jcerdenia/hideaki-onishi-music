@@ -1,8 +1,7 @@
 import Head from "next/head";
-import Navbar from "./Navbar";
+import Navigation from "./Navigation";
 import Footer from "./Footer";
 import type { SiteMetadata, NavItem, Page } from "../lib/types";
-import Navigation from "./Navigation";
 
 interface PageLayoutProps {
   site: SiteMetadata;
@@ -37,10 +36,10 @@ const PageLayout = ({
       </Head>
 
       {!noNavbarAndFooter ? (
-        <Navigation site={site} navItems={navItems}>
+        <Navigation {...{ site, navItems }}>
           {children}
 
-          <Footer site={site} />
+          <Footer {...{ site, navItems }} />
         </Navigation>
       ) : (
         <>{children}</>

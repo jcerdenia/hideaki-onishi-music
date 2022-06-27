@@ -5,6 +5,7 @@ export interface SiteMetadata {
   author: string;
   email: string;
   copyright: string;
+  socials: Social[];
 }
 
 export interface NavItem {
@@ -42,4 +43,10 @@ export interface Post {
   date: string;
   author: string;
   tags: string[];
+}
+
+export interface Social {
+  name: string;
+  url: string;
+  icon?: string;
 }
