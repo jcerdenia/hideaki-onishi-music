@@ -22,7 +22,7 @@ const Page: NextPage<PageProps> = (props) => {
         return (
           <PageSection
             key={i}
-            containerClassName="odd:bg-slate-100"
+            containerClassName="odd:bg-stone-100"
             className="max-w-5xl mx-auto"
             section={s}
           />

@@ -20,7 +20,7 @@ const Home: NextPage<HomeProps> = (props) => {
         style={{ border: "1px solid transparent" }}
       >
         <div
-          className="absolute left-0 top-0 h-[50%] w-[100%] bg-cover opacity-70 -z-50"
+          className="absolute left-0 top-0 h-[50%] w-[100%] opacity-70 -z-50 bg-base-100 bg-blend-darken bg-cover"
           style={{ backgroundImage: `url(${site.featuredImage})` }}
         />
 
