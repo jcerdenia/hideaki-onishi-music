@@ -20,7 +20,7 @@ const Footer = ({ site, navItems }: FooterProps) => {
             />
           </div>
 
-          <div className="col-span-6 md:col-span-3 text-sm font-thin prose-neutral">
+          <div className="col-span-6 py-8 md:col-span-3 md:py-0 text-sm font-thin prose-neutral">
             <h5 className="font-semibold">Site Map</h5>
 
             {navItems.map((n, i) => {
@@ -32,7 +32,7 @@ const Footer = ({ site, navItems }: FooterProps) => {
             })}
           </div>
 
-          <div className="col-span-6 md:col-span-3 text-sm font-thin prose-neutral">
+          <div className="col-span-6 py-8 md:col-span-3 md:py-0 text-sm font-thin prose-neutral">
             <h5 className="font-semibold">Links</h5>
 
             {site.socials.map((s, i) => {

@@ -32,7 +32,10 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
         <div className="max-w-3xl mx-auto my-4 px-4">
           {posts.map((p, i) => {
             return (
-              <div key={i} className="md:grid md:grid-cols-4 gap-2 py-8 prose">
+              <div
+                key={i}
+                className="md:grid md:grid-cols-4 gap-2 py-2 md:py-8 prose"
+              >
                 <div className="col-span-1 opacity-70">
                   {new Date(p.date).toLocaleDateString("default", {
                     year: "numeric",
