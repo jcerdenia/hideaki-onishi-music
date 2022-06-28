@@ -14,7 +14,8 @@ const lipsum =
 const dummyData: DummyData = {
   site: {
     title: "Hideaki Onishi Music",
-    description: "Lorem ipsum dolor sit amet.",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     featuredImage: "/images/mahler.png",
     author: "Hideaki Onishi",
     email: "name@email.com",
