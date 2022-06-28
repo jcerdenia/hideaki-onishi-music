@@ -35,7 +35,7 @@ const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
                     <Link href={n.path} passHref>
                       <a className={isActive(n.path) ? "font-bold" : ""}>
                         {n.title}
-                        {n.subItems && n.subItems.length ? (
+                        {n.subItems && n.subItems.length && n.path !== "/" ? (
                           <svg
                             className="fill-current"
                             xmlns="http://www.w3.org/2000/svg"
