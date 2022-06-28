@@ -1,9 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { getDynamicPages, getNavItems, getSiteMetadata } from "../lib/api";
 import PageLayout from "../components/PageLayout";
 import PageSection from "../components/PageSection";
-import Link from "next/link";
-import { slugify } from "../lib/utils";
+import useAppContext from "../lib/hooks/useAppContext";
+import { getDynamicPages, getNavItems, getSiteMetadata } from "../lib/api";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import type { Page, NavItem, SiteMetadata } from "../lib/types";
 
@@ -14,20 +13,26 @@ interface PageProps {
 }
 
 const Page: NextPage<PageProps> = (props) => {
+  const { footerHeight } = useAppContext();
   const { page } = props;
 
   return (
     <PageLayout {...props}>
-      {page.sections.map((s, i) => {
-        return (
-          <PageSection
-            key={i}
-            containerClassName="odd:bg-stone-100"
-            className="max-w-5xl mx-auto"
-            section={s}
-          />
-        );
-      })}
+      <div style={{ minHeight: `calc(100vh - 84px - ${footerHeight}px)` }}>
+        {page.sections.map((s, i) => {
+          return (
+            <PageSection
+              key={i}
+              containerClassName="even:bg-stone-100"
+              className={
+                "max-w-5xl mx-auto" +
+                (i === page.sections.length - 1 ? " pb-8" : "")
+              }
+              section={s}
+            />
+          );
+        })}
+      </div>
     </PageLayout>
   );
 };

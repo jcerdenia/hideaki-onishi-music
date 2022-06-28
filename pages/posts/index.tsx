@@ -1,13 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
+import PageLayout from "../../components/PageLayout";
+import PageSection from "../../components/PageSection";
+import Link from "next/link";
+import useAppContext from "../../lib/hooks/useAppContext";
 import {
   getSiteMetadata,
   getNavItems,
   getBlogPage,
   getPosts,
 } from "../../lib/api";
-import PageLayout from "../../components/PageLayout";
-import PageSection from "../../components/PageSection";
-import Link from "next/link";
 import { compareBy } from "../../lib/utils";
 import type { NextPage, GetStaticProps } from "next";
 import type { SiteMetadata, NavItem, Page, Post } from "../../lib/types";
@@ -20,9 +21,11 @@ interface PostsProps {
 }
 
 const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
+  const { footerHeight } = useAppContext();
+
   return (
     <PageLayout {...{ site, navItems, page }}>
-      <div className="min-h-[calc(100vh-84px)]">
+      <div style={{ minHeight: `calc(100vh - 84px - ${footerHeight}px)` }}>
         {page.sections.map((s, i) => {
           return (
             <PageSection key={i} className="max-w-5xl mx-auto" section={s} />
@@ -32,10 +35,7 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
         <div className="max-w-3xl mx-auto my-4 px-4">
           {posts.map((p, i) => {
             return (
-              <div
-                key={i}
-                className="md:grid md:grid-cols-4 gap-2 py-2 md:py-8 prose"
-              >
+              <div key={i} className="md:grid md:grid-cols-4 gap-2 py-2 prose">
                 <div className="col-span-1 opacity-70">
                   {new Date(p.date).toLocaleDateString("default", {
                     year: "numeric",

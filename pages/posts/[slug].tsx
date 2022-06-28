@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import PageLayout from "../../components/PageLayout";
 import Link from "next/link";
+import useAppContext from "../../lib/hooks/useAppContext";
 import { getPosts, getNavItems, getSiteMetadata } from "../../lib/api";
 import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
 import type { Post, Page, NavItem, SiteMetadata } from "../../lib/types";
@@ -12,6 +13,8 @@ interface PostPageProps {
 }
 
 const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
+  const { footerHeight } = useAppContext();
+
   const page: Page = {
     title: post.title,
     slug: post.slug,
@@ -20,7 +23,13 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
 
   return (
     <PageLayout {...{ site, navItems, page }}>
-      <div id={post.slug} className="max-w-5xl mx-auto prose">
+      <div
+        id={post.slug}
+        className="max-w-5xl mx-auto prose"
+        style={{
+          minHeight: `calc(100vh - 84px - ${footerHeight}px)`,
+        }}
+      >
         {post.featuredImage ? (
           <div className="flex flex-col justify-center px-4">
             <Link href={post.featuredImage} passHref>
@@ -50,7 +59,7 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
 
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
 
-          <div className="text-sm opacity-70">
+          <div className="text-sm opacity-70 md:mb-8">
             Published on{" "}
             {new Date(post.date).toLocaleDateString("default", {
               weekday: "long",

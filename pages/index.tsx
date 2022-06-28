@@ -1,7 +1,8 @@
-import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
 import PageLayout from "../components/PageLayout";
+import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
 import type { NextPage, GetStaticProps } from "next";
 import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
+import PageSection from "../components/PageSection";
 
 interface HomeProps {
   site: SiteMetadata;
@@ -38,8 +39,10 @@ const Home: NextPage<HomeProps> = (props) => {
           <div className="btn btn-secondary">Do Another Thing</div>
         </div>
 
-        <div className="my-8 max-w-5xl mx-auto px-4">
-          More content can go here.
+        <div className="my-8 max-w-5xl mx-auto p-4">
+          {page.sections.map((s, i) => {
+            return <PageSection key={i} section={s} />;
+          })}
         </div>
       </div>
     </PageLayout>
