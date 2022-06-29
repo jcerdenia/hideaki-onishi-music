@@ -4,7 +4,7 @@ import parseMarkdown from "./parseMarkdown";
 import type { SiteMetadata, Page, HomePage, NavItem, Post } from "./types";
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
-  return parseMarkdown("content/site.md", ["metadata"]);
+  return parseMarkdown("content/site/master.md", ["metadata"]);
 };
 
 export const getHomePage = async (): Promise<HomePage> => {
@@ -15,7 +15,7 @@ export const getHomePage = async (): Promise<HomePage> => {
     hero_description: heroDescription,
     slug,
     sections,
-  } = parseMarkdown("content/pages/home.md", ["metadata"]);
+  } = parseMarkdown("content/site/home.md", ["metadata"]);
 
   return {
     title,
@@ -28,13 +28,12 @@ export const getHomePage = async (): Promise<HomePage> => {
 };
 
 export const getPostsPage = async (): Promise<Page> => {
-  return parseMarkdown("content/pages/posts.md", ["metadata"]);
+  return parseMarkdown("content/site/posts.md", ["metadata"]);
 };
 
 export const getDynamicPages = async (): Promise<Page[]> => {
   return require("fs")
     .readdirSync("content/pages")
-    .filter((d: string) => d !== "home.md" && d !== "posts.md")
     .map((p: any) => parseMarkdown(`content/pages/${p}`, ["metadata"]));
 };
 
