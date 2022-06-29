@@ -19,7 +19,7 @@ export const getHomePage = async (): Promise<HomePage> => {
 
   return {
     title,
-    description,
+    description: description || heroDescription,
     heroTitle,
     heroDescription,
     slug,
