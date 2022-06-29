@@ -6,7 +6,7 @@ import useAppContext from "../../lib/hooks/useAppContext";
 import {
   getSiteMetadata,
   getNavItems,
-  getBlogPage,
+  getPostsPage,
   getPosts,
 } from "../../lib/api";
 import { compareBy } from "../../lib/utils";
@@ -79,7 +79,7 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const site = await getSiteMetadata();
   const navItems = await getNavItems();
-  const page = await getBlogPage();
+  const page = await getPostsPage();
   const posts = await getPosts();
 
   return {

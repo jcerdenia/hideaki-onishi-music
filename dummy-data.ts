@@ -40,12 +40,7 @@ const dummyData: DummyData = {
     slug: "",
     tagline: "Hideaki Onishi Music",
     description: `Where theory and practice merge`,
-    sections: [
-      {
-        title: "More content can go here",
-        content: "<p>More content can go here.</p>",
-      },
-    ],
+    sections: [],
   },
   blog: {
     title: "DOM",
@@ -157,26 +152,7 @@ const dummyData: DummyData = {
       author: "Hideaki Onishi",
       tags: ["music-theory", "mahler"],
     },
-    {
-      slug: "my-second-post",
-      title: "My Second Post: Consectetur adipscing elit",
-      description: "This is another post.",
-      content: lipsum,
-      date: "2022-06-17",
-      author: "Hideaki Onishi",
-      tags: ["music-theory", "schoenberg"],
-    },
-    {
-      slug: "my-third-post",
-      title:
-        "My Third Post: Sed do eiusmod tempor incididunt ut labore et dolore",
-      description: "Few know this.",
-      content: lipsum + lipsum + lipsum,
-      date: "2022-06-22",
-      author: "Hideaki Onishi",
-      tags: ["music-theory", "mahler"],
-    },
-  ].slice(0, 3),
+  ],
 };
 
 export default dummyData;
