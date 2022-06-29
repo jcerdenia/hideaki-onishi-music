@@ -38,8 +38,8 @@ const dummyData: DummyData = {
   home: {
     title: "Home",
     slug: "",
-    tagline: "Hideaki Onishi Music",
-    description: `Where theory and practice merge`,
+    heroTitle: "Hideaki Onishi Music",
+    heroDescription: `Where theory and practice merge`,
     sections: [],
   },
   blog: {
