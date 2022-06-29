@@ -1,5 +1,5 @@
 backend:
-  name: test-repo #git-gateway #test-repo to test
+  name: git-gateway #test-repo to test
   branch: main # Branch to update (optional; defaults to master)
 media_folder: public/images
 public_folder: images
