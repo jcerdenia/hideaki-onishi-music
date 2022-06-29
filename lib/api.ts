@@ -8,7 +8,23 @@ export const getSiteMetadata = async (): Promise<SiteMetadata> => {
 };
 
 export const getHomePage = async (): Promise<HomePage> => {
-  return parseMarkdown("content/pages/home.md", ["metadata"]);
+  const {
+    title,
+    description,
+    hero_title: heroTitle,
+    hero_description: heroDescription,
+    slug,
+    sections,
+  } = parseMarkdown("content/pages/home.md", ["metadata"]);
+
+  return {
+    title,
+    description,
+    heroTitle,
+    heroDescription,
+    slug,
+    sections,
+  };
 };
 
 export const getPostsPage = async (): Promise<Page> => {

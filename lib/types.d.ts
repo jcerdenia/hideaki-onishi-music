@@ -24,8 +24,8 @@ export interface Page {
 }
 
 export interface HomePage extends Page {
-  tagline: string;
-  description: string;
+  heroTitle: string;
+  heroDescription: string;
 }
 
 export interface Section {

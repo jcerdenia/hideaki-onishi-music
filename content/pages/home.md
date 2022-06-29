@@ -1,7 +1,7 @@
 ---
 title: "Home"
 slug: ""
-tagline: "Hideaki Onishi Music"
-description: "Where theory and practice merge"
+hero_title: "Hideaki Onishi Music"
+hero_description: "Where theory and practice merge"
 sections: []
 ---

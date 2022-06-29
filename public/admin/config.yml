@@ -1,0 +1,44 @@
+backend:
+  name: test-repo #git-gateway #test-repo to test
+  branch: main # Branch to update (optional; defaults to master)
+media_folder: public/images
+public_folder: images
+publish_mode: editorial_workflow
+collections:
+  - name: "pages"
+    label: "Pages"
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Featured Image", name: "featured_image", widget: "image" }
+      - label: 'Sections'
+        name: "sections"
+        widget: list
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Content", name: "content", widget: "markdown", required: false }
+    files:
+    - label: "Home"
+      name: "home"
+      file: "content/pages/home.md"
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - { label: "Hero Title", name: "hero_title", widget: "string" }
+        - { label: "Hero Description", name: "hero_description", widget: "markdown" }
+        - label: 'Sections'
+          name: "sections"
+          widget: list
+          fields:
+            - { label: "Title", name: "title", widget: "string" }
+            - { label: "Content", name: "content", widget: "markdown", required: false }
+    - label: "Blog"
+      name: "blog"
+      file: "content/pages/posts.md"
+      fields:
+        - { label: "Title", name: "title", widget: "string" }
+        - label: 'Sections'
+          name: "sections"
+          widget: list
+          fields:
+            - { label: "Title", name: "title", widget: "string" }
+            - { label: "Content", name: "content", widget: "markdown", required: false }
