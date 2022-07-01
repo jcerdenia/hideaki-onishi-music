@@ -161,8 +161,6 @@ export const getNavItems = async (): Promise<NavItem[]> => {
     }
   }[0]`);
 
-  console.log(data);
-
   return data.navItems.map((n: any): NavItem => {
     return {
       title: n.title,
