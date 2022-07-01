@@ -1,7 +1,7 @@
 export interface SiteMetadata {
   title: string;
   description: string;
-  featuredImage: string;
+  featuredImage?: string;
   author: string;
   email: string;
   copyright: string;
@@ -31,7 +31,7 @@ export interface HomePage extends Page {
 export interface Section {
   title: string;
   featuredImage?: string;
-  content: string;
+  body: string;
 }
 
 export interface Post {
@@ -39,7 +39,7 @@ export interface Post {
   title: string;
   description: string;
   featuredImage?: string;
-  content: string;
+  body: string;
   date: string;
   author: string;
   tags: string[];

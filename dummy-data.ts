@@ -16,7 +16,6 @@ const dummyData: DummyData = {
     title: "Hideaki Onishi Music",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    featuredImage: "/images/mahler.png",
     author: "Hideaki Onishi",
     email: "name@email.com",
     copyright: "© 2022 Hideaki Onishi Music Pte. Ltd.",
@@ -38,6 +37,7 @@ const dummyData: DummyData = {
   home: {
     title: "Home",
     slug: "",
+    featuredImage: "/images/mahler.png",
     heroTitle: "Hideaki Onishi Music",
     heroDescription: `Where theory and practice merge`,
     sections: [],
@@ -48,7 +48,7 @@ const dummyData: DummyData = {
     sections: [
       {
         title: "Dr Onishi's Musings",
-        content: "<p>Optional description here.</p>",
+        body: "<p>Optional description here.</p>",
       },
     ],
   },
@@ -59,39 +59,39 @@ const dummyData: DummyData = {
       sections: [
         {
           title: "About Hideaki Onishi",
-          content: lipsum + lipsum,
+          body: lipsum + lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Teaching Philosophy",
-          content: lipsum,
+          body: lipsum,
         },
         {
           title: "Hideaki Onishi Music",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Testimonials",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Music Theory",
-          content: lipsum,
+          body: lipsum,
         },
         {
           title: "Why HOM?",
-          content: lipsum,
+          body: lipsum,
         },
         {
           title: "NIE Classes",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Accomplishments",
-          content: lipsum,
+          body: lipsum,
         },
       ],
     },
@@ -101,22 +101,22 @@ const dummyData: DummyData = {
       sections: [
         {
           title: "Piano",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Kidz Music",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "ABRSM",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Upper Theory (Advanced)",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
       ],
@@ -127,17 +127,17 @@ const dummyData: DummyData = {
       sections: [
         {
           title: "Kulintang",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "About Sari-Sari",
-          content: lipsum,
+          body: lipsum,
           featuredImage: "/images/placeholder.jpeg",
         },
         {
           title: "Improvisation",
-          content: lipsum,
+          body: lipsum,
         },
       ],
     },
@@ -147,7 +147,7 @@ const dummyData: DummyData = {
       slug: "my-first-post",
       title: "My First Post: Lorem ipsum dolor sit amet",
       description: "This is a post.",
-      content: lipsum + lipsum,
+      body: lipsum + lipsum,
       date: "2022-06-16",
       author: "Hideaki Onishi",
       tags: ["music-theory", "mahler"],

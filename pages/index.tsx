@@ -1,8 +1,8 @@
 import PageLayout from "../components/PageLayout";
+import PageSection from "../components/PageSection";
 import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
 import type { NextPage, GetStaticProps } from "next";
 import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
-import PageSection from "../components/PageSection";
 
 interface HomeProps {
   site: SiteMetadata;
@@ -11,7 +11,7 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = (props) => {
-  const { site, page } = props;
+  const { page } = props;
 
   return (
     <PageLayout {...props}>
@@ -22,7 +22,7 @@ const Home: NextPage<HomeProps> = (props) => {
       >
         <div
           className="absolute left-0 top-0 h-[50%] w-[100%] opacity-70 -z-50 bg-base-100 bg-blend-darken bg-cover"
-          style={{ backgroundImage: `url(${site.featuredImage})` }}
+          style={{ backgroundImage: `url(${page.featuredImage})` }}
         />
 
         <div className="max-w-3xl mx-auto bg-base-100 mt-[calc(100vh/3)] p-4 rounded">

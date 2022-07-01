@@ -57,7 +57,7 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
             dangerouslySetInnerHTML={{ __html: post.description }}
           />
 
-          <div dangerouslySetInnerHTML={{ __html: post.content }} />
+          <div dangerouslySetInnerHTML={{ __html: post.body }} />
 
           <div className="text-sm opacity-70 md:mb-8">
             Published on{" "}

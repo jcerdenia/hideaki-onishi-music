@@ -32,7 +32,10 @@ const PageLayout = ({
           property="og:description"
           content={page.description || site.description}
         />
-        <meta property="og:image" content={site.featuredImage} />
+        <meta
+          property="og:image"
+          content={page.featuredImage || site.featuredImage}
+        />
       </Head>
 
       {!noNavbarAndFooter ? (

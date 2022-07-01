@@ -1,67 +1,180 @@
 import dummyData from "../dummy-data";
+import client from "./sanityClient";
+import { toHTML } from "@portabletext/to-html";
 import { slugify } from "./utils";
-import parseMarkdown from "./parseMarkdown";
 import type { SiteMetadata, Page, HomePage, NavItem, Post } from "./types";
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
-  return parseMarkdown("content/site/master.md", ["metadata"]);
+  if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {
+    return dummyData.site;
+  }
+
+  const data = await client.fetch(`*[_type == "site"] {
+    title,
+    description,
+    author,
+    email,
+    copyright,
+    "socials": *[_type == "social"] {
+      name,
+      url
+    }
+  }[0]`);
+
+  return {
+    title: data.title || "",
+    description: data.description || "",
+    author: data.author || "",
+    email: data.email || "",
+    copyright: data.copyright || "",
+    socials: data.socials || [],
+  };
 };
 
 export const getHomePage = async (): Promise<HomePage> => {
-  const {
-    title,
-    description,
-    hero_title: heroTitle,
-    hero_description: heroDescription,
-    slug,
-    sections,
-  } = parseMarkdown("content/site/home.md", ["metadata"]);
+  if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {
+    return dummyData.home;
+  }
 
-  return {
+  const data = await client.fetch(`*[_type == "homePage"] {
     title,
-    description: description || heroDescription,
+    "featuredImage": featuredImage.asset->url,
     heroTitle,
     heroDescription,
-    slug,
-    sections,
+    sections->
+  }[0]`);
+
+  return {
+    title: data.title,
+    slug: "",
+    heroTitle: data.heroTitle,
+    heroDescription: toHTML(data.heroDescription),
+    featuredImage: data.featuredImage,
+    sections: data.sections || [],
   };
 };
 
 export const getPostsPage = async (): Promise<Page> => {
-  return parseMarkdown("content/site/posts.md", ["metadata"]);
+  if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {
+    return dummyData.blog;
+  }
+
+  const data = await client.fetch(`*[_type == "postsPage" ] {
+    title,
+    "slug": slug.current,
+    "sections": sections[]-> {
+      title,
+      body
+    }
+  }[0]`);
+
+  return {
+    ...data,
+    sections: data.sections.map((s: any) => {
+      return {
+        title: s.title,
+        body: s.body ? toHTML(s.body) : "",
+      };
+    }),
+  };
 };
 
 export const getDynamicPages = async (): Promise<Page[]> => {
-  return require("fs")
-    .readdirSync("content/pages")
-    .map((p: any) => parseMarkdown(`content/pages/${p}`, ["metadata"]));
+  if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {
+    return dummyData.pages;
+  }
+
+  const data = await client.fetch(`*[_type == "page"] | order(title) {
+    title,
+    "slug": slug.current,
+    "sections": sections[]-> {
+      title,
+      "featuredImage": featuredImage.asset->url,
+      body
+    }
+  }`);
+
+  return data.map((p: any) => {
+    return {
+      ...p,
+      sections: p.sections
+        ? p.sections.map((s: any) => {
+            return {
+              ...s,
+              body: s.body ? toHTML(s.body) : "",
+            };
+          })
+        : [],
+    };
+  });
 };
 
 export const getPosts = async (): Promise<Post[]> => {
-  return require("fs")
-    .readdirSync("content/posts")
-    .map((p: any) => {
-      const { metadata, content } = parseMarkdown(`content/posts/${p}`);
+  if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {
+    return dummyData.posts;
+  }
 
-      return { ...metadata, content };
-    });
+  const data = await client.fetch(`*[_type == "post"] {
+    title,
+    "slug": slug.current,
+    "featuredImage": featuredImage.asset->url,
+    description,
+    date,
+    body
+  }`);
+
+  return data.map((p: any) => {
+    return {
+      ...p,
+      body: toHTML(p.body),
+    };
+  });
 };
 
 export const getNavItems = async (): Promise<NavItem[]> => {
-  const home = await getHomePage();
-  const pages = await getDynamicPages();
-  const blog = await getPostsPage();
+  if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {
+    const home = await getHomePage();
+    const pages = await getDynamicPages();
+    const blog = await getPostsPage();
 
-  return [home, ...pages, blog].map((p: Page) => {
+    return [home, ...pages, blog].map((p: Page) => {
+      return {
+        title: p.shortTitle || p.title,
+        path: `/${p.slug}`,
+        subItems: p.sections.map((s) => {
+          return {
+            title: s.title,
+            path: `/${p.slug}/#${slugify(s.title)}`,
+          };
+        }),
+      };
+    });
+  }
+
+  const data = await client.fetch(`*[_type == "navigation"] {
+    "navItems": menuItems[]-> {
+      title,
+      "slug": slug.current,
+      "sections": sections[]-> {
+        title,
+      }
+    }
+  }[0]`);
+
+  console.log(data);
+
+  return data.navItems.map((n: any): NavItem => {
     return {
-      title: p.shortTitle || p.title,
-      path: `/${p.slug}`,
-      subItems: p.sections.map((s) => {
-        return {
-          title: s.title,
-          path: `/${p.slug}/#${slugify(s.title)}`,
-        };
-      }),
+      title: n.title,
+      path: n.slug ? `/${n.slug}` : "/",
+      subItems: n.sections
+        ? n.sections.map((s: any): NavItem => {
+            return {
+              title: s.title,
+              path: n.slug ? `/${n.slug}/#${slugify(s.title)}` : "",
+            };
+          })
+        : [],
     };
   });
 };
