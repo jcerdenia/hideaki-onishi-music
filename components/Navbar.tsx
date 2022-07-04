@@ -62,7 +62,10 @@ const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
                 );
               })}
 
-              <a className="btn btn-primary" href={`mailto:${email}`}>
+              <a
+                className="btn btn-primary"
+                href={`mailto:${email}?subject=Contact From Website`}
+              >
                 Contact
               </a>
             </ul>

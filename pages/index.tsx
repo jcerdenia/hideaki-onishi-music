@@ -3,6 +3,7 @@ import PageSection from "../components/PageSection";
 import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
 import type { NextPage, GetStaticProps } from "next";
 import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
+import useAppContext from "../lib/hooks/useAppContext";
 
 interface HomeProps {
   site: SiteMetadata;
@@ -11,21 +12,24 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = (props) => {
+  const { footerHeight } = useAppContext();
   const { page } = props;
 
   return (
     <PageLayout {...props}>
       <div
-        className="relative max-w-5xl mx-auto min-h-[calc(100vh-84px)]"
-        // Workaround to preserve absolute positioning of child div:
-        style={{ border: "1px solid transparent" }}
+        className="relative"
+        style={{
+          border: "1px solid transparent", // Workaround to preserve absolute positioning of child div
+          minHeight: `calc(100vh - 84px - ${footerHeight}px)`,
+        }}
       >
         <div
-          className="absolute left-0 top-0 h-[50%] w-[100%] opacity-70 -z-50 bg-base-100 bg-blend-darken bg-cover"
+          className="absolute left-0 top-0 h-[50vh] w-[100%] opacity-50 -z-50 bg-base-100 bg-blend-darken bg-cover bg-top"
           style={{ backgroundImage: `url(${page.featuredImage})` }}
         />
 
-        <div className="max-w-3xl mx-auto bg-base-100 mt-[calc(100vh/3)] p-4 rounded">
+        <div className="max-w-3xl mx-auto bg-base-100 mt-[calc(100vh/4)] p-4 rounded">
           <h1 className="mx-auto text-4xl md:text-6xl font-bold">
             {page.heroTitle}
           </h1>
@@ -35,11 +39,23 @@ const Home: NextPage<HomeProps> = (props) => {
             dangerouslySetInnerHTML={{ __html: page.heroDescription }}
           />
 
-          <div className="btn btn-primary mr-2">Do Something</div>
-          <div className="btn btn-secondary">Do Another Thing</div>
+          {page.primaryAction ? (
+            <a className="btn btn-primary mr-2" href={page.primaryAction.path}>
+              {page.primaryAction.label}
+            </a>
+          ) : null}
+
+          {page.secondaryAction ? (
+            <a
+              className="btn btn-secondary mr-2"
+              href={page.secondaryAction.path}
+            >
+              {page.secondaryAction.label}
+            </a>
+          ) : null}
         </div>
 
-        <div className="my-8 max-w-5xl mx-auto p-4">
+        <div className="my-8 max-w-3xl mx-auto">
           {page.sections.map((s, i) => {
             return <PageSection key={i} section={s} />;
           })}

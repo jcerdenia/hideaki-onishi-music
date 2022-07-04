@@ -27,7 +27,7 @@ const Footer = ({ site, navItems }: FooterProps) => {
     >
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-12 md:col-span-6 text-sm font-light prose-neutral">
+          <div className="col-span-12 md:col-span-6 font-light prose-neutral">
             <div>{site.copyright}</div>
 
             <div
@@ -36,25 +36,29 @@ const Footer = ({ site, navItems }: FooterProps) => {
             />
           </div>
 
-          <div className="col-span-6 md:col-span-3 text-sm font-light prose-neutral">
+          <div className="col-span-6 md:col-span-3 font-light prose-neutral">
             <h5 className="font-semibold">Site Map</h5>
 
             {navItems.map((n, i) => {
               return (
                 <div key={i} className="my-1">
-                  <Link href={n.path}>{n.title}</Link>
+                  {/* Use native link as a workaround since
+                  NextJS Link won't scroll to top of page */}
+                  <a className="hover:opacity-70" href={n.path}>
+                    {n.title}
+                  </a>
                 </div>
               );
             })}
           </div>
 
-          <div className="col-span-6 md:col-span-3 text-sm font-light prose-neutral">
+          <div className="col-span-6 md:col-span-3 font-light prose-neutral">
             <h5 className="font-semibold">Links</h5>
 
             {site.socials.map((s, i) => {
               return (
                 <div key={i} className="my-1">
-                  <a href={s.url} className="my-1">
+                  <a href={s.url} className="my-1 hover:opacity-70">
                     {s.name}
                   </a>
                 </div>

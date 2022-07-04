@@ -37,7 +37,7 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
             return (
               <div key={i} className="md:grid md:grid-cols-4 gap-2 py-2 prose">
                 <div className="col-span-1 opacity-70">
-                  {new Date(p.date).toLocaleDateString("default", {
+                  {new Date(p.date).toLocaleDateString("en-GB", {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -61,7 +61,7 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
                 {p.featuredImage ? (
                   <div className="md:col-span-1">
                     <img
-                      className="m-0 p-0"
+                      className="m-0 p-0 shadow"
                       src={p.featuredImage}
                       alt="featured post image"
                     />

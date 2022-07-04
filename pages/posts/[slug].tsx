@@ -35,7 +35,7 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
             <Link href={post.featuredImage} passHref>
               <a className="mt-4 mb-0 md:mb-4">
                 <img
-                  className="m-0"
+                  className="m-0 shadow-lg"
                   width="100%"
                   src={post.featuredImage}
                   alt={`image for ${post.title}`}
@@ -61,7 +61,7 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
 
           <div className="text-sm opacity-70 md:mb-8">
             Published on{" "}
-            {new Date(post.date).toLocaleDateString("default", {
+            {new Date(post.date).toLocaleDateString("en-GB", {
               weekday: "long",
               month: "long",
               day: "numeric",

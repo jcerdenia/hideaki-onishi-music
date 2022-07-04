@@ -52,6 +52,13 @@ const Navigation = ({ site, navItems, children }: DrawerProps) => {
               </li>
             );
           })}
+
+          <a
+            className="btn btn-primary"
+            href={`mailto:${site.email}?subject=Contact From Website`}
+          >
+            Contact
+          </a>
         </ul>
       </div>
     </div>

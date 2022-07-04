@@ -30,7 +30,7 @@ const PageSection = ({
         {hasImage ? (
           <div className="flex flex-col justify-center px-4">
             <img
-              className="mt-4 mb-0 md:mb-4"
+              className="mt-4 mb-0 md:mb-4 shadow-md"
               src={section.featuredImage}
               alt={`image for ${section.title}`}
             />

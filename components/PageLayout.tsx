@@ -19,7 +19,7 @@ const PageLayout = ({
   noNavbarAndFooter = false,
 }: PageLayoutProps) => {
   return (
-    <div className="font-raleway">
+    <div className="font-dmSans">
       <Head>
         <title>{`${page.title} | ${site.title}`}</title>
         <meta property="og:title" content={page.title} />
