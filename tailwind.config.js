@@ -8,12 +8,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        raleway: ["Raleway", "san-serif"],
+        dmSans: ["DM Sans", "san-serif"],
       },
     },
   },
   plugins: [require("@tailwindcss/typography"), require("daisyui")],
   daisyui: {
-    themes: ["garden"],
+    themes: ["corporate"],
   },
 };
