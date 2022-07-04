@@ -26,6 +26,8 @@ export interface Page {
 export interface HomePage extends Page {
   heroTitle: string;
   heroDescription: string;
+  primaryAction?: SiteAction;
+  secondaryAction?: SiteAction;
 }
 
 export interface Section {
@@ -49,4 +51,9 @@ export interface Social {
   name: string;
   url: string;
   icon?: string;
+}
+
+interface SiteAction {
+  label: string;
+  path: string;
 }

@@ -38,8 +38,16 @@ const dummyData: DummyData = {
     title: "Home",
     slug: "",
     featuredImage: "/images/mahler.png",
-    heroTitle: "Hideaki Onishi Music",
-    heroDescription: `Where theory and practice merge`,
+    heroTitle: "Where Theory and Practice Merge",
+    heroDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+    primaryAction: {
+      label: "Do Something",
+      path: "/",
+    },
+    secondaryAction: {
+      label: "Do Something Else",
+      path: "/",
+    },
     sections: [],
   },
   blog: {
@@ -60,7 +68,7 @@ const dummyData: DummyData = {
         {
           title: "About Hideaki Onishi",
           body: lipsum + lipsum,
-          featuredImage: "/images/placeholder.jpeg",
+          featuredImage: "/images/profile.jpeg",
         },
         {
           title: "Teaching Philosophy",
@@ -146,6 +154,7 @@ const dummyData: DummyData = {
     {
       slug: "my-first-post",
       title: "My First Post: Lorem ipsum dolor sit amet",
+      featuredImage: "/images/mahler.png",
       description: "This is a post.",
       body: lipsum + lipsum,
       date: "2022-06-16",
