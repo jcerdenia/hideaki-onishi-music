@@ -15,6 +15,12 @@ const Home: NextPage<HomeProps> = (props) => {
   const { footerHeight } = useAppContext();
   const { page } = props;
 
+  const getActionLink = (slug: string): string => {
+    return slug.includes("@")
+      ? `mailto:${slug}?subject=Contact From Website`
+      : `/${slug}`;
+  };
+
   return (
     <PageLayout {...props}>
       <div
@@ -40,7 +46,10 @@ const Home: NextPage<HomeProps> = (props) => {
           />
 
           {page.primaryAction ? (
-            <a className="btn btn-primary mr-2" href={page.primaryAction.path}>
+            <a
+              className="btn btn-primary mr-2"
+              href={getActionLink(page.primaryAction.path)}
+            >
               {page.primaryAction.label}
             </a>
           ) : null}
@@ -48,7 +57,7 @@ const Home: NextPage<HomeProps> = (props) => {
           {page.secondaryAction ? (
             <a
               className="btn btn-secondary mr-2"
-              href={page.secondaryAction.path}
+              href={getActionLink(page.secondaryAction.path)}
             >
               {page.secondaryAction.label}
             </a>

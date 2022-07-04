@@ -41,6 +41,8 @@ export const getHomePage = async (): Promise<HomePage> => {
     "featuredImage": featuredImage.asset->url,
     heroTitle,
     heroDescription,
+    primaryAction,
+    secondaryAction,
     sections->
   }[0]`);
 
@@ -50,6 +52,8 @@ export const getHomePage = async (): Promise<HomePage> => {
     heroTitle: data.heroTitle,
     heroDescription: toHTML(data.heroDescription),
     featuredImage: data.featuredImage,
+    primaryAction: data.primaryAction,
+    secondaryAction: data.secondaryAction,
     sections: data.sections || [],
   };
 };
