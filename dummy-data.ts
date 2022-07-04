@@ -39,7 +39,8 @@ const dummyData: DummyData = {
     slug: "",
     featuredImage: "/images/mahler.png",
     heroTitle: "Where Theory and Practice Merge",
-    heroDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`,
+    heroDescription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     primaryAction: {
       label: "Do Something",
       path: "/",
@@ -48,7 +49,14 @@ const dummyData: DummyData = {
       label: "Do Something Else",
       path: "/",
     },
-    sections: [],
+    sections: [
+      /*
+      {
+        title: "Optional Section",
+        body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      },
+      */
+    ],
   },
   blog: {
     title: "DOM",

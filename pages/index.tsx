@@ -1,9 +1,9 @@
 import PageLayout from "../components/PageLayout";
 import PageSection from "../components/PageSection";
+import useAppContext from "../lib/hooks/useAppContext";
 import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
 import type { NextPage, GetStaticProps } from "next";
 import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
-import useAppContext from "../lib/hooks/useAppContext";
 
 interface HomeProps {
   site: SiteMetadata;
@@ -25,7 +25,7 @@ const Home: NextPage<HomeProps> = (props) => {
         }}
       >
         <div
-          className="absolute left-0 top-0 h-[50vh] w-[100%] opacity-50 -z-50 bg-base-100 bg-blend-darken bg-cover bg-top"
+          className="absolute left-0 top-0 h-[calc(50vh-84px)] w-[100%] opacity-50 -z-50 bg-base-100 bg-blend-darken bg-cover"
           style={{ backgroundImage: `url(${page.featuredImage})` }}
         />
 
@@ -35,7 +35,7 @@ const Home: NextPage<HomeProps> = (props) => {
           </h1>
 
           <div
-            className="prose text-xl md:text-2xl my-8 opacity-70 font-thin"
+            className="prose text-xl md:text-2xl my-8 opacity-70 font-light"
             dangerouslySetInnerHTML={{ __html: page.heroDescription }}
           />
 
@@ -55,7 +55,7 @@ const Home: NextPage<HomeProps> = (props) => {
           ) : null}
         </div>
 
-        <div className="my-8 max-w-3xl mx-auto">
+        <div className="mt-6 mb-8 max-w-3xl mx-auto">
           {page.sections.map((s, i) => {
             return <PageSection key={i} section={s} />;
           })}
