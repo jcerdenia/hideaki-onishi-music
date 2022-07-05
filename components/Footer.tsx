@@ -27,14 +27,17 @@ const Footer = ({ site, navItems }: FooterProps) => {
     >
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="grid grid-cols-12 gap-8">
-          <div className="col-span-12 md:col-span-6 font-light prose-neutral">
+          <div className="col-span-12 md:col-span-5 font-light prose-neutral">
             <div>{site.copyright}</div>
 
             <div
-              className="my-1"
+              className="mt-4 mb-1"
               dangerouslySetInnerHTML={{ __html: site.description }}
             />
           </div>
+
+          {/* Empty column for spacing */}
+          <div className="hidden md:block col-span-12 md:col-span-1" />
 
           <div className="col-span-6 md:col-span-3 font-light prose-neutral">
             <h5 className="font-semibold">Site Map</h5>
@@ -51,7 +54,6 @@ const Footer = ({ site, navItems }: FooterProps) => {
               );
             })}
           </div>
-
           <div className="col-span-6 md:col-span-3 font-light prose-neutral">
             <h5 className="font-semibold">Links</h5>
 
