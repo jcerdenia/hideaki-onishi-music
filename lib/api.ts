@@ -43,7 +43,10 @@ export const getHomePage = async (): Promise<HomePage> => {
     heroDescription,
     primaryAction,
     secondaryAction,
-    sections->
+    "sections": sections[]-> {
+      title,
+      body
+    }
   }[0]`);
 
   return {
@@ -54,7 +57,14 @@ export const getHomePage = async (): Promise<HomePage> => {
     featuredImage: data.featuredImage,
     primaryAction: data.primaryAction,
     secondaryAction: data.secondaryAction,
-    sections: data.sections || [],
+    sections: data.sections
+      ? data.sections.map((s: any) => {
+          return {
+            title: s.title,
+            body: s.body ? toHTML(s.body) : "",
+          };
+        })
+      : [],
   };
 };
 
