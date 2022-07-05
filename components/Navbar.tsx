@@ -50,13 +50,14 @@ const Navbar = ({ brand, email, navItems, toggleId }: NavbarProps) => {
                     </Link>
 
                     <ul className="p-2 bg-base-100 text-sm z-30">
-                      {n.subItems?.map((s, j) => {
-                        return (
-                          <li key={j}>
-                            <Link href={s.path}>{s.title}</Link>
-                          </li>
-                        );
-                      })}
+                      {n.path !== "/" &&
+                        n.subItems?.map((s, j) => {
+                          return (
+                            <li key={j}>
+                              <Link href={s.path}>{s.title}</Link>
+                            </li>
+                          );
+                        })}
                     </ul>
                   </li>
                 );
