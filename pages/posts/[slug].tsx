@@ -3,7 +3,7 @@ import PageLayout from "../../components/PageLayout";
 import Link from "next/link";
 import useAppContext from "../../lib/hooks/useAppContext";
 import { getPosts, getNavItems, getSiteMetadata } from "../../lib/api";
-import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import type { Post, Page, NavItem, SiteMetadata } from "../../lib/types";
 
 interface PostPageProps {
@@ -74,7 +74,7 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const site = await getSiteMetadata();
   const navItems = await getNavItems();
   const posts = await getPosts();
@@ -86,6 +86,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
+/*
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getPosts();
 
@@ -97,5 +98,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return { paths, fallback: false };
 };
+*/
 
 export default PostPage;

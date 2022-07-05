@@ -10,7 +10,7 @@ import {
   getPosts,
 } from "../../lib/api";
 import { compareBy } from "../../lib/utils";
-import type { NextPage, GetStaticProps } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import type { SiteMetadata, NavItem, Page, Post } from "../../lib/types";
 
 interface PostsProps {
@@ -76,7 +76,7 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const site = await getSiteMetadata();
   const navItems = await getNavItems();
   const page = await getPostsPage();

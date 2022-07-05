@@ -1,6 +1,6 @@
 import { getSiteMetadata } from "../lib/api";
 import PageLayout from "../components/PageLayout";
-import type { NextPage, GetStaticProps } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import type { SiteMetadata, Page } from "../lib/types";
 
 interface MaintenanceProps {
@@ -42,7 +42,7 @@ const Maintenance: NextPage<MaintenanceProps> = ({ site }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const site = await getSiteMetadata();
 
   return {

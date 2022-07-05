@@ -2,7 +2,7 @@ import PageLayout from "../components/PageLayout";
 import PageSection from "../components/PageSection";
 import useAppContext from "../lib/hooks/useAppContext";
 import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
-import type { NextPage, GetStaticProps } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
 
 interface HomeProps {
@@ -74,7 +74,7 @@ const Home: NextPage<HomeProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const site = await getSiteMetadata();
   const page = await getHomePage();
   const navItems = await getNavItems();

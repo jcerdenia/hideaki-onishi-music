@@ -3,7 +3,7 @@ import PageLayout from "../components/PageLayout";
 import PageSection from "../components/PageSection";
 import useAppContext from "../lib/hooks/useAppContext";
 import { getDynamicPages, getNavItems, getSiteMetadata } from "../lib/api";
-import type { NextPage, GetStaticProps, GetStaticPaths } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 import type { Page, NavItem, SiteMetadata } from "../lib/types";
 
 interface PageProps {
@@ -37,7 +37,7 @@ const Page: NextPage<PageProps> = (props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const site = await getSiteMetadata();
   const navItems = await getNavItems();
   const pages = await getDynamicPages();
@@ -49,6 +49,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
+/*
 export const getStaticPaths: GetStaticPaths = async () => {
   const pages = await getDynamicPages();
 
@@ -60,5 +61,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return { paths, fallback: false };
 };
+*/
 
 export default Page;
