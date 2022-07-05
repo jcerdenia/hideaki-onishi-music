@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import useAppContext from "../lib/hooks/useAppContext";
 import useInnerWidth from "../lib/hooks/useInnerWidth";
