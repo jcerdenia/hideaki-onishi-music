@@ -14,6 +14,11 @@ const nextConfig = {
             destination: "/",
             permanent: false,
           },
+      {
+        source: "/admin",
+        destination: "https://hideakionishimusic.sanity.studio",
+        permanent: false,
+      },
     ];
   },
 };
