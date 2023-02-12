@@ -23,7 +23,7 @@ export const getSiteMetadata = async (): Promise<SiteMetadata> => {
 
   return {
     title: data.title || "",
-    description: data.description || "",
+    description: toHTML(data.description || ""),
     author: data.author || "",
     email: data.email || "",
     copyright: data.copyright || "",
