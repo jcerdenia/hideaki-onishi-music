@@ -112,12 +112,14 @@ export const getDynamicPages = async (): Promise<Page[]> => {
     return {
       ...p,
       sections: p.sections
-        ? p.sections.map((s: any) => {
-            return {
-              ...s,
-              body: s.body ? toHTML(s.body) : "",
-            };
-          })
+        ? p.sections
+            .filter((s: any) => s)
+            .map((s: any) => {
+              return {
+                ...s,
+                body: s.body ? toHTML(s.body) : "",
+              };
+            })
         : [],
     };
   });
@@ -155,12 +157,14 @@ export const getNavItems = async (): Promise<NavItem[]> => {
       return {
         title: p.shortTitle || p.title,
         path: `/${p.slug}`,
-        subItems: p.sections.map((s) => {
-          return {
-            title: s.title,
-            path: `/${p.slug}/#${slugify(s.title)}`,
-          };
-        }),
+        subItems: p.sections
+          .filter((s: any) => s)
+          .map((s) => {
+            return {
+              title: s.title,
+              path: `/${p.slug}/#${slugify(s.title)}`,
+            };
+          }),
       };
     });
   }
@@ -180,12 +184,14 @@ export const getNavItems = async (): Promise<NavItem[]> => {
       title: n.title,
       path: n.slug ? `/${n.slug}` : "/",
       subItems: n.sections
-        ? n.sections.map((s: any): NavItem => {
-            return {
-              title: s.title,
-              path: n.slug ? `/${n.slug}/#${slugify(s.title)}` : "",
-            };
-          })
+        ? n.sections
+            .filter((s: any) => s)
+            .map((s: any): NavItem => {
+              return {
+                title: s.title,
+                path: n.slug ? `/${n.slug}/#${slugify(s.title)}` : "",
+              };
+            })
         : [],
     };
   });
