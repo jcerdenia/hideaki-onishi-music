@@ -23,7 +23,7 @@ const Page: NextPage<PageProps> = (props) => {
           return (
             <PageSection
               key={i}
-              containerClassName="even:bg-stone-100"
+              containerClassName="even:bg-stone-100 py-8"
               className={
                 "max-w-5xl mx-auto" +
                 (i === page.sections.length - 1 ? " pb-8" : "")

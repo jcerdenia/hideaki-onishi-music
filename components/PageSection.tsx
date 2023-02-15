@@ -18,23 +18,29 @@ const PageSection = ({
 }: PageSectionProps) => {
   const slug = slugify(section.title);
   const hasImage = section.featuredImage && !noImage;
+  const hasLongText = section.body.length > 1200;
+
+  const image = (
+    <img
+      className="mt-4 mb-0 md:mb-4 shadow-md"
+      src={section.featuredImage}
+      alt={`image for ${section.title}`}
+    />
+  );
 
   return (
     <div className={containerClassName}>
       <div
         id={slug}
         className={
-          `${className} prose` + (hasImage ? " grid md:grid-cols-2 gap-4" : "")
+          `${className} prose` +
+          (hasImage && !hasLongText ? " grid md:grid-cols-2 gap-4" : "")
         }
       >
-        {hasImage ? (
-          <div className="flex flex-col justify-center px-4">
-            <img
-              className="mt-4 mb-0 md:mb-4 shadow-md"
-              src={section.featuredImage}
-              alt={`image for ${section.title}`}
-            />
-          </div>
+        {hasImage && hasLongText ? <div className="px-4">{image}</div> : null}
+
+        {hasImage && !hasLongText ? (
+          <div className="flex flex-col justify-center px-4">{image}</div>
         ) : null}
 
         <div className="flex flex-col justify-center max-w-3xl mx-auto px-4">
