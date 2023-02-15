@@ -23,3 +23,7 @@ a {
 .btn {
   border-radius: 2px;
 }
+
+.section-body a {
+  word-break: break-all;
+}

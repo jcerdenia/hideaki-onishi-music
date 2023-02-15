@@ -44,7 +44,10 @@ const PageSection = ({
             </a>
           </Link>
 
-          <div dangerouslySetInnerHTML={{ __html: section.body }} />
+          <div
+            className="section-body"
+            dangerouslySetInnerHTML={{ __html: section.body }}
+          />
         </div>
       </div>
     </div>
