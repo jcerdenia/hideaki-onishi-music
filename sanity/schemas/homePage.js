@@ -7,7 +7,6 @@ export default {
       title: "Title",
       name: "title",
       type: "string",
-      readOnly: true,
     },
     {
       title: "Featured Image",
