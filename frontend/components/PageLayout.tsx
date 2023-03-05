@@ -22,7 +22,7 @@ const PageLayout = ({
     <div className="font-dmSans">
       <Head>
         <title>{`${page.title} | ${site.title}`}</title>
-        <meta property="og:title" content={page.title} />
+        <meta property="og:title" content={`${page.title} | ${site.title}`} />
         <meta property="og:type" content="website" />
         <meta
           name="description"
