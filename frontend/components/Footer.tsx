@@ -57,23 +57,9 @@ const Footer = ({ site, navItems }: FooterProps) => {
             <h5 className="font-semibold">Links</h5>
 
             {site.socials.map((s, i) => {
-              let icon;
-              switch (true) {
-                case s.url.includes("facebook.com"):
-                  icon = "bi bi-facebook";
-                  break;
-                case s.url.includes("twitter.com"):
-                  icon = "bi bi-twitter";
-                  break;
-                case s.url.includes("youtube.com"):
-                  icon = "bi bi-youtube";
-                  break;
-                case s.url.includes("instagram.com"):
-                  icon = "bi bi-instagram";
-                  break;
-                default:
-                  icon = "bi bi-link-45deg";
-              }
+              const domains = ["facebook", "twitter", "youtube", "instagram"];
+              const domain = domains.find((d) => s.url.includes(`${d}.com`));
+              const icon = domain ? `bi bi-${domain}` : "bi bi-link-45deg";
 
               return (
                 <div key={i} className="my-1">
