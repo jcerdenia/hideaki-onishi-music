@@ -21,3 +21,8 @@ export const compareBy = (prop: string): ((a: any, b: any) => 1 | -1 | 0) => {
     return a < b ? -1 : a > b ? 1 : 0;
   };
 };
+
+// Get text up to first period and without HTML tags.
+export const excerpt = (text: string): string => {
+  return text.slice(0, text.indexOf(". ") + 1).replace(/(<([^>]+)>)/gi, "");
+};

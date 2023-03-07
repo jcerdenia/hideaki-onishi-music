@@ -5,6 +5,7 @@ import useAppContext from "../../lib/hooks/useAppContext";
 import { getPosts, getNavItems, getSiteMetadata } from "../../lib/api";
 import type { NextPage, GetServerSideProps } from "next";
 import type { Post, Page, NavItem, SiteMetadata } from "../../lib/types";
+import { excerpt } from "../../lib/utils";
 
 interface PostPageProps {
   site: SiteMetadata;
@@ -18,6 +19,8 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
   const page: Page = {
     title: post.title,
     slug: post.slug,
+    description: excerpt(post.body),
+    featuredImage: post.featuredImage,
     sections: [],
   };
 
