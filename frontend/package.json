@@ -12,6 +12,7 @@
     "@portabletext/to-html": "^1.0.3",
     "@types/lodash.throttle": "^4.1.7",
     "daisyui": "^2.15.3",
+    "disqus-react": "^1.1.5",
     "lodash.throttle": "^4.1.1",
     "next": "^12.2.0",
     "next-sanity": "^0.6.0",

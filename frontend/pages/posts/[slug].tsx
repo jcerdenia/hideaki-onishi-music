@@ -6,6 +6,7 @@ import { getPosts, getNavItems, getSiteMetadata } from "../../lib/api";
 import type { NextPage, GetServerSideProps } from "next";
 import type { Post, Page, NavItem, SiteMetadata } from "../../lib/types";
 import { excerpt } from "../../lib/utils";
+import Comments from "../../components/Comments";
 
 interface PostPageProps {
   site: SiteMetadata;
@@ -71,6 +72,8 @@ const PostPage: NextPage<PostPageProps> = ({ site, navItems, post }) => {
               year: "numeric",
             })}
           </div>
+
+          <Comments post={post} />
         </div>
       </div>
     </PageLayout>
