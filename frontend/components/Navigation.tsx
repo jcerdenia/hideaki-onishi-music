@@ -1,7 +1,8 @@
-import Navbar from "./Navbar";
 import Link from "next/link";
-import type { NavItem, SiteMetadata } from "../lib/types";
 import { useRef } from "react";
+
+import type { NavItem, SiteMetadata } from "../lib/types";
+import Navbar from "./Navbar";
 
 interface DrawerProps {
   site: SiteMetadata;

@@ -1,7 +1,8 @@
-import { getSiteMetadata } from "../lib/api";
+import type { GetServerSideProps, NextPage } from "next";
+
 import PageLayout from "../components/PageLayout";
-import type { NextPage, GetServerSideProps } from "next";
-import type { SiteMetadata, Page } from "../lib/types";
+import { getSiteMetadata } from "../lib/api";
+import type { Page, SiteMetadata } from "../lib/types";
 
 interface MaintenanceProps {
   site: SiteMetadata;

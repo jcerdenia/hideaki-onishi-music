@@ -1,8 +1,9 @@
+import { toHTML } from "@portabletext/to-html";
+
 import dummyData from "../dummy-data";
 import client from "./sanityClient";
-import { toHTML } from "@portabletext/to-html";
+import type { HomePage, NavItem, Page, Post, SiteMetadata } from "./types";
 import { slugify } from "./utils";
-import type { SiteMetadata, Page, HomePage, NavItem, Post } from "./types";
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
   if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {

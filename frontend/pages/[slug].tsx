@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+import type { GetServerSideProps, NextPage } from "next";
+
 import PageLayout from "../components/PageLayout";
 import PageSection from "../components/PageSection";
-import useAppContext from "../lib/hooks/useAppContext";
 import { getDynamicPages, getNavItems, getSiteMetadata } from "../lib/api";
-import type { NextPage, GetServerSideProps } from "next";
-import type { Page, NavItem, SiteMetadata } from "../lib/types";
+import useAppContext from "../lib/hooks/useAppContext";
+import type { NavItem, Page, SiteMetadata } from "../lib/types";
 
 interface PageProps {
   site: SiteMetadata;

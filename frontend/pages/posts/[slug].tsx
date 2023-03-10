@@ -1,12 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
-import PageLayout from "../../components/PageLayout";
+import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
-import useAppContext from "../../lib/hooks/useAppContext";
-import { getPosts, getNavItems, getSiteMetadata } from "../../lib/api";
-import type { NextPage, GetServerSideProps } from "next";
-import type { Post, Page, NavItem, SiteMetadata } from "../../lib/types";
-import { excerpt } from "../../lib/utils";
+
 import Comments from "../../components/Comments";
+import PageLayout from "../../components/PageLayout";
+import { getNavItems, getPosts, getSiteMetadata } from "../../lib/api";
+import useAppContext from "../../lib/hooks/useAppContext";
+import type { NavItem, Page, Post, SiteMetadata } from "../../lib/types";
+import { excerpt } from "../../lib/utils";
 
 interface PostPageProps {
   site: SiteMetadata;

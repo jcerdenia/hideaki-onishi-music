@@ -1,7 +1,8 @@
 import Head from "next/head";
-import Navigation from "./Navigation";
+
+import type { NavItem, Page, SiteMetadata } from "../lib/types";
 import Footer from "./Footer";
-import type { SiteMetadata, NavItem, Page } from "../lib/types";
+import Navigation from "./Navigation";
 
 interface PageLayoutProps {
   site: SiteMetadata;

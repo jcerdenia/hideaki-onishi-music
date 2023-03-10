@@ -1,7 +1,8 @@
 import { useEffect, useRef } from "react";
+
 import useAppContext from "../lib/hooks/useAppContext";
 import useInnerWidth from "../lib/hooks/useInnerWidth";
-import { SiteMetadata, NavItem } from "../lib/types";
+import { NavItem, SiteMetadata } from "../lib/types";
 
 interface FooterProps {
   site: SiteMetadata;

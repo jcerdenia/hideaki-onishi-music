@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
-import { slugify } from "../lib/utils";
+
 import type { Section } from "../lib/types";
+import { slugify } from "../lib/utils";
 
 interface PageSectionProps {
   containerClassName?: string;

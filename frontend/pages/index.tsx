@@ -1,8 +1,9 @@
+import type { GetServerSideProps, NextPage } from "next";
+
 import PageLayout from "../components/PageLayout";
 import PageSection from "../components/PageSection";
-import useAppContext from "../lib/hooks/useAppContext";
 import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
-import type { NextPage, GetServerSideProps } from "next";
+import useAppContext from "../lib/hooks/useAppContext";
 import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
 
 interface HomeProps {
