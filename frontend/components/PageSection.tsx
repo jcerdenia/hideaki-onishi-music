@@ -46,7 +46,9 @@ const PageSection = ({
         <div className="flex flex-col justify-center max-w-3xl mx-auto px-4">
           <Link href={`#${slug}`} passHref>
             <a className="no-underline hover:opacity-70">
-              <h3 className="font-bold mt-4 mb-2">{section.title}</h3>
+              <h2 className="md:text-4xl font-bold mt-4 mb-2">
+                {section.title}
+              </h2>
             </a>
           </Link>
 
