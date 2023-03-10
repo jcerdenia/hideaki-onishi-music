@@ -11,6 +11,8 @@ interface DummyData {
 const lipsum =
   "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>";
 
+const companyInformation = `<p><strong>Hideaki Onishi Music Pte. Ltd.</strong></p><p>Company Registration Number (UEN): 202144986H</p><p>Company Type: Exempt Private Company Limited By Shares</p><p>Status: Live Company</p><p>Company Incorporation Date: 30 December 2021</p><p></p><p><strong>Registered Office Address </strong></p><p>458 Corporation Road #05-04</p><p>Singapore 649814</p><p></p><p><strong>Officers</strong></p><p>Hideaki Onishi (Director)</p><p>Lim Wei, Jackson (Secretary)</p><p></p><p><strong>Contact:</strong></p><p>Phone/SMS/WhatsApp: +65 9433 0455</p><p>Email: hideakionishi@gmail.com</p><p>Website:<a href="http://www.hideakionishimusic.com">http://www.hideakionishimusic.com</a></p>`;
+
 const dummyData: DummyData = {
   site: {
     title: "Hideaki Onishi Music",
@@ -106,6 +108,10 @@ const dummyData: DummyData = {
         {
           title: "Accomplishments",
           body: lipsum,
+        },
+        {
+          title: "Company Information",
+          body: companyInformation,
         },
       ],
     },

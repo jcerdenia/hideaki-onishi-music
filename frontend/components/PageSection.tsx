@@ -28,6 +28,14 @@ const PageSection = ({
     />
   );
 
+  if (section.title.toLocaleLowerCase() === "company information") {
+    section.body = section.body
+      .replace(/<p><strong>/g, "<h4>")
+      .replace(/<\/strong><\/p>/g, "</h4>")
+      .replace(/<p>/g, "<div>")
+      .replace(/<\/p>/g, "</div>");
+  }
+
   return (
     <div className={containerClassName}>
       <div
