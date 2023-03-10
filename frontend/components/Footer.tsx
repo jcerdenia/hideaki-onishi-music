@@ -39,7 +39,7 @@ const Footer = ({ site, navItems }: FooterProps) => {
           <div className="hidden md:block col-span-12 md:col-span-1" />
 
           <div className="col-span-6 md:col-span-3 font-light prose-neutral">
-            <h5 className="font-semibold">Site Map</h5>
+            <h5 className="font-semibold">Pages</h5>
 
             {navItems.map((n, i) => {
               return (
@@ -54,7 +54,7 @@ const Footer = ({ site, navItems }: FooterProps) => {
             })}
           </div>
           <div className="col-span-6 md:col-span-3 font-light prose-neutral">
-            <h5 className="font-semibold">Links</h5>
+            <h5 className="font-semibold">Socials</h5>
 
             {site.socials.map((s, i) => {
               const domains = ["facebook", "twitter", "youtube", "instagram"];
