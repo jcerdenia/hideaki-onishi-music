@@ -4,7 +4,7 @@ const Comments = ({ post }: any) => {
   return (
     <div className="bg-slate-100 p-4 rounded-md shadow">
       <DiscussionEmbed
-        shortname="hideakionishimusic"
+        shortname="hideakionishimusic-1"
         config={{
           url: post.url,
           identifier: post.slug,
