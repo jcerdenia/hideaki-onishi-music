@@ -22,7 +22,14 @@ export const compareBy = (prop: string): ((a: any, b: any) => 1 | -1 | 0) => {
   };
 };
 
-// Get text up to first period and without HTML tags.
-export const excerpt = (text: string): string => {
-  return text.slice(0, text.indexOf(". ") + 1).replace(/(<([^>]+)>)/gi, "");
+// Shorten up to given word count and remove HTML tags.
+export const excerpt = (text: string, wordCount: number = 30): string => {
+  // return text.slice(0, text.indexOf(". ") + 1).replace(/(<([^>]+)>)/gi, "");
+  const words = text.replace(/(<([^>]+)>)/gi, "").split(" ");
+  let shortenedWords = words.slice(0, wordCount).join(" ");
+
+  if (words.length > wordCount) {
+    shortenedWords += "...";
+  }
+  return shortenedWords;
 };

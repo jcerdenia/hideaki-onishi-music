@@ -13,6 +13,7 @@ import {
 import useAppContext from "../../lib/hooks/useAppContext";
 import type { NavItem, Page, Post, SiteMetadata } from "../../lib/types";
 import { compareBy } from "../../lib/utils";
+import { excerpt } from "../../lib/utils";
 
 interface PostsProps {
   site: SiteMetadata;
@@ -60,7 +61,9 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
                     </a>
                   </Link>
 
-                  <div className="mb-4 md:mb-0">{p.description}</div>
+                  <div className="mb-4 md:mb-0">
+                    {p.description || excerpt(p.body)}
+                  </div>
                 </div>
 
                 {p.featuredImage ? (
