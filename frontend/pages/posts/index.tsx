@@ -90,6 +90,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const page = await getPostsPage();
   const posts = await getPosts();
 
+  if (page && page.sections && page.sections[0]) {
+    page.description = excerpt(page.sections[0].body);
+  }
+
   return {
     props: {
       site,

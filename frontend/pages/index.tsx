@@ -5,6 +5,7 @@ import PageSection from "../components/PageSection";
 import { getHomePage, getNavItems, getSiteMetadata } from "../lib/api";
 import useAppContext from "../lib/hooks/useAppContext";
 import type { HomePage, NavItem, SiteMetadata } from "../lib/types";
+import { excerpt } from "../lib/utils";
 
 interface HomeProps {
   site: SiteMetadata;
@@ -79,6 +80,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const site = await getSiteMetadata();
   const page = await getHomePage();
   const navItems = await getNavItems();
+  page.description = excerpt(page.heroDescription);
 
   return {
     props: { site, page, navItems },

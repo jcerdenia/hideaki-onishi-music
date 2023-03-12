@@ -6,6 +6,7 @@ import PageSection from "../components/PageSection";
 import { getDynamicPages, getNavItems, getSiteMetadata } from "../lib/api";
 import useAppContext from "../lib/hooks/useAppContext";
 import type { NavItem, Page, SiteMetadata } from "../lib/types";
+import { excerpt } from "../lib/utils";
 
 interface PageProps {
   site: SiteMetadata;
@@ -45,13 +46,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const page = pages.find((p) => p.slug === context.params?.slug);
 
+  if (page && page.sections && page.sections[0]) {
+    page.description = excerpt(page.sections[0].body);
+  }
+
   return {
     props: { site, page, navItems },
   };
 };
 
 /*
-export const getStaticPaths: GetStaticPaths = async () => {
+const getStaticPaths: GetStaticPaths = async () => {
   const pages = await getDynamicPages();
 
   const paths = pages.map((p) => {
