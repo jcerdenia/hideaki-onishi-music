@@ -23,7 +23,7 @@ const Footer = ({ site, navItems }: FooterProps) => {
   return (
     <div
       ref={footerRef}
-      className="bg-neutral text-neutral-content scroll-smooth"
+      className="bg-neutral text-neutral-content scroll-smooth text-slate-300"
     >
       <div className="max-w-5xl mx-auto px-4 py-8">
         <div className="grid grid-cols-12 gap-8">
@@ -32,7 +32,9 @@ const Footer = ({ site, navItems }: FooterProps) => {
 
             <div
               className="mt-4 mb-1"
-              dangerouslySetInnerHTML={{ __html: site.description }}
+              dangerouslySetInnerHTML={{
+                __html: site.description.replace(/<p>\s*<\/p>/g, "<br>"),
+              }}
             />
           </div>
 
