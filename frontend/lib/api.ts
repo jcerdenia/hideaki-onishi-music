@@ -85,12 +85,16 @@ export const getPostsPage = async (): Promise<Page> => {
 
   return {
     ...data,
-    sections: data.sections.map((s: any) => {
-      return {
-        title: s.title,
-        body: s.body ? toHTML(s.body) : "",
-      };
-    }),
+    sections: data.sections
+      ? data.sections
+          .filter((s: any) => s)
+          .map((s: any) => {
+            return {
+              title: s.title,
+              body: s.body ? toHTML(s.body) : "",
+            };
+          })
+      : [],
   };
 };
 
