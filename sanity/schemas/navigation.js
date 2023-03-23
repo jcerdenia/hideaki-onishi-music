@@ -17,6 +17,9 @@ export default {
         {
           type: "reference",
           to: [{ type: "homePage" }, { type: "postsPage" }, { type: "page" }],
+          options: {
+            disableNew: true,
+          },
         },
       ],
     },
