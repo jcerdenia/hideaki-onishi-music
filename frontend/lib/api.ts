@@ -1,9 +1,23 @@
-import { toHTML } from "@portabletext/to-html";
+import { toHTML as _toHTML } from "@portabletext/to-html";
 
 import dummyData from "../dummy-data";
 import client from "./sanityClient";
 import type { HomePage, NavItem, Page, Post, SiteMetadata } from "./types";
 import { slugify } from "./utils";
+
+const toHTML = (val: any) => {
+  return _toHTML(val, {
+    components: {
+      types: {
+        image: (data: any) => {
+          const ref = data.value.asset._ref.replace("image-", "");
+          const path = ref.replace(/-([^/-]+)$/, ".$1");
+          return `<img src="https://cdn.sanity.io/images/99izudq9/production/${path}">`;
+        },
+      },
+    },
+  });
+};
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
   if (process.env.NEXT_PUBLIC_DUMMY_MODE === "1") {
