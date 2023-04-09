@@ -27,7 +27,10 @@ const Posts: NextPage<PostsProps> = ({ site, navItems, page, posts }) => {
 
   return (
     <PageLayout {...{ site, navItems, page }}>
-      <div style={{ minHeight: `calc(100vh - 84px - ${footerHeight}px)` }}>
+      <div
+        className="pb-8"
+        style={{ minHeight: `calc(100vh - 84px - ${footerHeight}px)` }}
+      >
         {page.sections.map((s, i) => {
           return (
             <PageSection
