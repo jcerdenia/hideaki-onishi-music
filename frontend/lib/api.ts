@@ -6,7 +6,7 @@ import type { HomePage, NavItem, Page, Post, SiteMetadata } from "./types";
 import { slugify } from "./utils";
 
 const toHTML = (val: any) => {
-  return _toHTML(val, {
+  const out = _toHTML(val, {
     components: {
       types: {
         image: (data: any) => {
@@ -17,6 +17,8 @@ const toHTML = (val: any) => {
       },
     },
   });
+
+  return out.replace(/<a href=/g, '<a target="_blank" href=');
 };
 
 export const getSiteMetadata = async (): Promise<SiteMetadata> => {
